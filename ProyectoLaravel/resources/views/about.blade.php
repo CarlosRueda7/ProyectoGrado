@@ -58,12 +58,6 @@
                                     <li><a href="{{ route('services') }}">Services</a></li>
                                     <li><a href="{{ route('help') }}">Help</a></li>
                                     <li><a href="{{ route('blog') }}">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="{{ route('blog') }}">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="{{ route('elements') }}">Elements</a></li>
-                                        </ul>
-                                    </li>
                                     <li><a href="{{ route('contact') }}">Contact</a></li>
                                 </ul>
                             </nav>

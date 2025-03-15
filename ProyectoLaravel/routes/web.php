@@ -14,10 +14,6 @@ Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
 
-Route::get('/blog_details', function () {
-    return view('blog_details');
-})->name('blog_details');
-
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');

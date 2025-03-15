@@ -57,13 +57,7 @@
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('help') }}">Help</a></li>
-                                                <li><a href="blog.blade.php">Blog</a>
-                                                    <ul class="submenu">
-                                                        <li><a href="{{ route('blog') }}">Blog</a></li>
-                                                        <li><a href="blog_details.html">Blog Details</a></li>
-                                                        <li><a href="{{ route('elements') }}">Element</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Sign Up</a></li>
