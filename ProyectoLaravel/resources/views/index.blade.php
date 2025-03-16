@@ -58,8 +58,8 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="{{ route('index') }}">Home</a></li>
-                                                <li><a href="{{ route('help') }}">Help</a></li>
+                                            <li><a href="{{ route('index') }}">Home</a></li>
+                                                <li><a href="{{ route('help') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 <!-- Button -->
@@ -96,11 +96,6 @@
                                     <p data-animation="fadeInLeft" data-delay=".8s">Supercharge your WordPress hosting with detailed 
                                         website analytics, marketing tools, security, and data 
                                     backups all in one place.</p>
-                                    <!-- Slider btn -->
-                                    <div class="slider-btns">
-                                        <!-- Hero-btn -->
-                                        <a data-animation="fadeInLeft" data-delay="1s" href="industries.blade.php" class="btn radius-btn">get started</a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
@@ -122,16 +117,6 @@
                                     <p data-animation="fadeInLeft" data-delay=".8s">Supercharge your WordPress hosting with detailed 
                                         website analytics, marketing tools, security, and data 
                                     backups all in one place.</p>
-                                    <!-- Slider btn -->
-                                    <div class="slider-btns">
-                                        <!-- Hero-btn -->
-                                        <a data-animation="fadeInLeft" data-delay="1s" href="industries.blade.php" class="btn radius-btn">get started</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="hero__img d-none d-lg-block f-right">
-                                    <img src="assets/img/hero/hero_right.png" alt="" data-animation="fadeInRight" data-delay="1s">
                                 </div>
                             </div>
                         </div>

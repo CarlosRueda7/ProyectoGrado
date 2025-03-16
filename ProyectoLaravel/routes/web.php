@@ -46,3 +46,7 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
+Route::get('/suegra', function () {
+    return view('suegra');
+})->name('suegra');
+
