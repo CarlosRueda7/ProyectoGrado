@@ -83,50 +83,46 @@
     <main>
         <!-- Slider Area Start-->
         <div class="slider-area slider-bg ">
-            <div class="slider-active">
-                <!-- Single Slider -->
-                <div class="single-slider d-flex align-items-center slider-height ">
-                    <div class="container">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-xl-5 col-lg-5 col-md-9 ">
-                                <div class="hero__caption">
-                                    <span data-animation="fadeInLeft" data-delay=".3s">Best Domain & hosting service provider</span>
-                                    <h1 data-animation="fadeInLeft" data-delay=".6s ">Powerful web hosting</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".8s">Supercharge your WordPress hosting with detailed 
-                                        website analytics, marketing tools, security, and data 
-                                    backups all in one place.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="hero__img d-none d-lg-block f-right">
-                                    <img src="assets/img/hero/hero_right.png" alt="" data-animation="fadeInRight" data-delay="1s">
-                                </div>
-                            </div>
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider d-flex align-items-center slider-height ">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-5 col-lg-5 col-md-9 ">
+                        <div class="hero__caption">
+                            <span data-animation="fadeInLeft" data-delay=".3s">🌿 Bienvenido al futuro del cuidado de tus plantas 🌱</span>
+                            <h1 data-animation="fadeInLeft" data-delay=".6s">Sistema IoT para el cuidado de tus plantas</h1>
+                            <p data-animation="fadeInLeft" data-delay=".8s">Descubre cómo nuestro prototipo IoT revoluciona el monitoreo y optimización del cuidado de tus plantas domésticas, mejorando su salud y tu bienestar.</p>
                         </div>
                     </div>
-                </div>      
-                <!-- Single Slider -->
-                <div class="single-slider d-flex align-items-center slider-height ">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 col-md-9 ">
-                                <div class="hero__caption">
-                                    <span data-animation="fadeInLeft" data-delay=".3s">Best Domain & hosting service provider</span>
-                                    <h1 data-animation="fadeInLeft" data-delay=".6s">Powerful web hosting</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".8s">Supercharge your WordPress hosting with detailed 
-                                        website analytics, marketing tools, security, and data 
-                                    backups all in one place.</p>
-                                </div>
-                            </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="hero__img d-none d-lg-block f-right">
+                            <img src="assets/img/hero/hero_right.png" alt="Sistema IoT para plantas" data-animation="fadeInRight" data-delay="1s">
                         </div>
                     </div>
-                </div>      
+                </div>
             </div>
-            <!-- Slider Shape -->
-            <div class="slider-shape d-none d-lg-block">
-                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+        </div>      
+        <!-- Single Slider -->
+        <div class="single-slider d-flex align-items-center slider-height ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-9 ">
+                        <div class="hero__caption">
+                            <span data-animation="fadeInLeft" data-delay=".3s">Cuidado inteligente y eficiente</span>
+                            <h1 data-animation="fadeInLeft" data-delay=".6s">Tecnología avanzada para tus plantas</h1>
+                            <p data-animation="fadeInLeft" data-delay=".8s">Con sensores de última generación y análisis en tiempo real, nuestro sistema IoT te ayuda a optimizar el riego, la luz y la temperatura de tus plantas.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>      
+    </div>
+    <!-- Slider Shape -->
+    <div class="slider-shape d-none d-lg-block">
+        <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+    </div>
+</div>
         <!-- Slider Area End -->
         <!-- Domain-search start -->
         <div class="domain-search-area section-bg1">
@@ -149,7 +145,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-12">
                     <div class="section-tittle text-center mb-105">
-                        <h2>Most amazing features</h2>
+                        <h2>Características de los Sensores</h2>
                     </div>
                 </div>
             </div>
@@ -238,284 +234,136 @@
     <!-- Pricing Card End -->
     <!--? About-1 Area Start -->
     <div class="about-area1 section-padding40">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
-                    <!-- about-img -->
-                    <div class="about-img ">
-                        <img src="assets/img/gallery/about1.png" alt="">
-                    </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
+                <!-- about-img -->
+                <div class="about-img ">
+                    <img src="assets/img/gallery/about1.png" alt="Prototipo IoT para plantas">
                 </div>
-                <div class="col-xl-7 col-lg-7 col-md-12">
-                    <div class="about-caption ">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 mb-30">
-                            <h2>Global server location</h2>
-                        </div>
-                        <p class="mb-40">Supercharge your WordPress hosting with detailed website analytics, marketing tools. Our experts are just part of the reason Bluehost is the ideal home for your WordPress website. We're here to help you succeed!</p>
-                        <ul>
-                            <li>
-                                <img src="assets/img/icon/right.svg" alt="">
-                                <p>WordPress hosting with detailed website</p>
-                            </li>
-                            <li>
-                                <img src="assets/img/icon/right.svg" alt="">
-                                <p>Our experts are just part of the reason</p>
-                            </li>
-                            <li>
-                                <img src="assets/img/icon/right.svg" alt="">
-                                <p> Detailed website analytics</p>
-                            </li>
-                        </ul>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-12">
+                <div class="about-caption ">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle section-tittle2 mb-30">
+                        <h2>Beneficios del Prototipo IoT</h2>
                     </div>
+                    <p class="mb-40">Nuestro innovador sistema IoT para el monitoreo y optimización del cuidado de plantas domésticas ofrece múltiples ventajas para mejorar la salud de tus plantas y facilitar tu vida.</p>
+                    <ul>
+                    <li>
+                    ☑️&nbsp;&nbsp;<p>Monitoreo en tiempo real de luz, humedad y temperatura.</p>
+                    </li>
+                    <li>
+                    ☑️&nbsp;&nbsp;<p>Alertas automáticas para prevenir daños en las plantas.</p>
+                    </li>
+                    <li>
+                    ☑️&nbsp;&nbsp;<p>Ahorro de agua y otros recursos esenciales.</p>
+                    </li>
+                    <li>
+                    ☑️&nbsp;&nbsp;<p>Análisis de datos históricos para un mejor cuidado.</p>
+                    </li>
+                    <li>
+                    ☑️&nbsp;&nbsp;<p>Interfaz intuitiva accesible desde cualquier dispositivo.</p>
+                    </li>
+
+
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- About-1 Area End -->
-    <!--? About-2 Area Start -->
-    <div class="about-area1 pb-bottom">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-xl-7 col-lg-7 col-md-12">
-                    <div class="about-caption about-caption3 mb-50">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 mb-30">
-                            <h2>Dedicated support</h2>
-                        </div>
-                        <p class="mb-40">Supercharge your WordPress hosting with detailed website analytics, marketing tools. Our experts are just part of the reason Bluehost is the ideal home for your WordPress website. We're here to help you succeed!</p>
-                        <ul class="mb-30">
-                            <li>
-                                <img src="assets/img/icon/right.svg" alt="">
-                                <p>WordPress hosting with detailed website</p>
-                            </li>
-                            <li>
-                                <img src="assets/img/icon/right.svg" alt="">
-                                <p>Our experts are just part of the reason</p>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn"><i class="fas fa-phone-alt"></i>(10) 892-293 2678</a>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
-                    <!-- about-img -->
-                    <div class="about-img ">
-                        <img src="assets/img/gallery/about2.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+     <!-- About-2 Area start -->
     <!-- About-2 Area End -->
     <!-- ask questions -->
-    <section class="ask-questions section-bg1 section-padding30 fix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-9 col-md-10 ">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle text-center mb-90">
-                        <h2>Frequently ask questions</h2>
-                        <p>Supercharge your WordPress hosting with detailed website analytics, marketing tools. Our experts are just part of the reason Bluehost is the ideal home for your WordPress website. We're here to help you succeed!</p>
+    <section class="ask-questions section-bg1 section-padding30 fix"> 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-9 col-md-10 ">
+                <!-- Section Tittle -->
+                <div class="section-tittle text-center mb-90">
+                    <h2>Preguntas más frecuentes</h2>
+                    <p>Optimice el cuidado de sus plantas con nuestro sistema de monitoreo basado en IoT. Le ayudamos a optimizar y personalizar el cuidado de sus plantas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="single-question d-flex mb-50">
+                    <span> Q.</span>
+                    <div class="pera">
+                        <h2>¿A quién está dirigido este prototipo?</h2>
+                        <p>Está dirigido a personas con poca o nula experiencia en jardinería que deseen mejorar el cuidado de sus plantas en el área metropolitana de Bucaramanga.</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-question d-flex mb-50">
-                        <span> Q.</span>
-                        <div class="pera">
-                            <h2>Why can't people connect to the web server on my PC?</h2>
-                            <p>We operate one of the most advanced 100 Gbit networks in the world, complete with Anycast support and extensive DDoS protection.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-question d-flex mb-50">
-                        <span> Q.</span>
-                        <div class="pera">
-                            <h2>What domain name should I choose for my site?</h2>
-                            <p>We operate one of the most advanced 100 Gbit networks in the world, complete with Anycast support and extensive DDoS protection.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-question d-flex mb-50">
-                        <span> Q.</span>
-                        <div class="pera">
-                            <h2>How can I make my website work without www. in front?</h2>
-                            <p>We operate one of the most advanced 100 Gbit networks in the world, complete with Anycast support and extensive DDoS protection.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-question d-flex mb-50">
-                        <span> Q.</span>
-                        <div class="pera">
-                            <h2>Why does Internet Information Server want a password?</h2>
-                            <p>We operate one of the most advanced 100 Gbit networks in the world, complete with Anycast support and extensive DDoS protection.</p>
-                        </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="single-question d-flex mb-50">
+                    <span> Q.</span>
+                    <div class="pera">
+                        <h2>¿Cómo funciona el sistema IoT para el cuidado de plantas?</h2>
+                        <p>El sistema utiliza una red de sensores que monitorean parámetros como la humedad, temperatura, luz y pH del suelo. Los datos recolectados son analizados en tiempo real para proporcionar recomendaciones personalizadas y alertas.</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-12 ">
-                    <div class="more-btn text-center mt-20">
-                        <a href="#" class="btn">Go to Support</a>
+            <div class="col-lg-6 col-md-6">
+                <div class="single-question d-flex mb-50">
+                    <span> Q.</span>
+                    <div class="pera">
+                        <h2>¿Qué tipo de plantas pueden ser monitoreadas con este sistema?</h2>
+                        <p>El prototipo está diseñado para las cinco especies de plantas domésticas más comunes en el área metropolitana de Bucaramanga, identificadas a través de encuestas y consultas especializadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="single-question d-flex mb-50">
+                    <span> Q.</span>
+                    <div class="pera">
+                        <h2>¿Qué tecnología utiliza el prototipo?</h2>
+                        <p>Utiliza sensores IoT para medir variables ambientales, una red de comunicación para enviar datos y una plataforma digital para visualizar la información en tiempo real.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-xl-12 ">
+                <div class="more-btn text-center mt-20">
+                    <a href="{{ route('nosotros') }}" class="btn">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- End ask questions -->
-    <!--? Testimonial Area Start -->
-    <section class="testimonial-area section-bg1">    
-        <div class="container" >   
-            <div class="testimonial-wrapper">
-                <div class="row align-items-center justify-content-center">
-                    <div class=" col-lg-10 col-md-12 col-sm-11">
-                        <!-- Testimonial Start -->
-                        <div class="h1-testimonial-active">
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center mt-55">
-                                <div class="testimonial-caption">
-                                    <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                    <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
-                                </div>
-                                <!-- founder -->
-                                <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/icon/testimonial.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Jacson Miller</span>
-                                        <p>Designer @Colorlib</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial text-center mt-55"">
-                                <div class="testimonial-caption">
-                                    <img src="assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
-                                    <p>Brook presents your services with flexible, convenient and cdpose layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfect replica;ition of thei designers ijtls intended csents your se.</p>
-                                </div>
-                                <!-- founder -->
-                                <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/icon/testimonial.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Jacson Miller</span>
-                                        <p>Designer @Colorlib</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial End -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!--? Testimonial Area End -->
 </main>
+
 <footer>
     <div class="footer-wrappr " data-background="assets/img/gallery/footer-bg.png">
-        <div class="footer-area footer-padding ">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <!-- logo -->
-                            <div class="footer-logo mb-25">
-                                <a href="index.blade.php"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                            </div>
-                            <div class="footer-tittle mb-50">
-                                <p>Subscribe our newsletter to get updates about our services</p>
-                            </div>
-                            <!-- Form -->
-                            <div class="footer-form">
-                                <div id="mc_embed_signup">
-                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'">
-                                        <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                Subscribe
-                                            </button>
-                                        </div>
-                                        <div class="mt-10 info"></div>
-                                    </form>
+            <div class="footer-area footer-padding ">
+                <div class="container">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo mb-25">
+                                    <a href="{{ route('index') }}"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
-                            </div>
-                            <!-- social -->
-                            <div class="footer-social mt-50">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Company</h4>
-                                <ul>
-                                    <li><a href="#">Why choose us</a></li>
-                                    <li><a href="#"> Review</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Carrier</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Products</h4>
-                                <ul>
-                                    <li><a href="#">Why choose us</a></li>
-                                    <li><a href="#"> Review</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Carrier</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                    <li><a href="#">Technology</a></li>
-                                    <li><a href="#">  Products</a></li>
-                                    <li><a href="#">Customers</a></li>
-                                    <li><a href="#">Quality</a></li>
-                                    <li><a href="#">Sales geography</a></li>
-                                </ul>
+                                <!-- imagen debajo del logo -->
+                                <div class="footer-img">
+                                    <img src="assets/img/footer/footer-img.png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- footer-bottom area -->
-        <div class="footer-bottom-area">
-            <div class="container">
-                <div class="footer-border">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="footer-copy-right text-center">
-
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </footer>
+    </footer>
   <!-- Scroll Up -->
   <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>

@@ -118,7 +118,7 @@
                             <div class="member-role">Desarrollador</div>
                             <p class="member-bio">Especialista en tecnologías web modernas, Anghel es responsable de la arquitectura técnica y el desarrollo de nuestras soluciones. Su experiencia abarca desde frontend hasta backend.</p>
                             <div class="social-links">
-                            <a href="#">Correo Electrónico</a>
+                            <a href="mailto:agutierrez739@unab.edu.co">Correo Electrónico</a>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                             <div class="member-role">Desarrollador</div>
                             <p class="member-bio">Especialista en tecnologías web modernas, Carlos es responsable de la arquitectura técnica y el desarrollo de nuestras soluciones. Su experiencia abarca desde frontend hasta backend.</p>
                             <div class="social-links">
-                                <a href="#">Correo Electrónico</a>
+                            <a href="mailto:crueda578@unab.edu.co">Correo Electrónico</a>
                             </div>
                         </div>
                     </div>
