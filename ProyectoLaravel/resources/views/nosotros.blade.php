@@ -91,56 +91,85 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-8 col-lg-9 col-md-12 ">
                     <div class="hero__caption hero__caption3 text-center">
-                        <h1 data-animation="fadeInLeft" data-delay=".6s ">CORONA DE CRISTO</h1>
+                        <h1 data-animation="fadeInLeft" data-delay=".6s ">SOBRE NOSOTROS</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div id="about-us-page">
+        <div class="container">
+            <section>
+                <h2>Quiénes Somos</h2>
+                <p>Nosotros somos un equipo apasionado por la innovación tecnológica y el cuidado ambiental. A través del desarrollo de un prototipo basado en la tecnología IoT (Internet de las Cosas), buscamos simplificar y optimizar el cuidado de las plantas domésticas. Nuestro proyecto está diseñado para ayudar a los propietarios de plantas en el área metropolitana de Bucaramanga a monitorear y mejorar las condiciones de sus cultivos de manera personalizada, mejorando la calidad de vida de las plantas y de los usuarios. Con un enfoque en la sostenibilidad y el uso eficiente de los recursos, aspiramos a contribuir a un entorno más saludable y equilibrado en los hogares.</p>
+                
+            </section>
 
-<div class="plantas-container">
-    <div class="plantas-plant-header">
-        <img src="{{ asset('assets/img/flores/corona.jpg') }}" alt="Corona de Cristo" class="plantas-plant-image">
-        <div class="plantas-plant-title">
-            <h1>Corona de Cristo</h1>
-            <p class="plantas-scientific-name">Euphorbia milii</p>
-            <p>La Corona de Cristo es un arbusto suculento y perenne con tallos espinosos y flores brillantes. Se cree que fue la planta utilizada para la corona de Jesucristo, de ahí su nombre común.</p>
+            <section class="team-section">
+                <h2>Nuestro Equipo</h2>
+                <p>Conoce a las personas creativas y talentosas detrás de nuestros proyectos:</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="{{ asset('assets/img/fotos/anghel.png') }}" alt="Foto de Anghel" class="member-img">
+                        <div class="member-info">
+                            <h3 class="member-name">Anghel Andrés Gutierrez Gonzalez</h3>
+                            <div class="member-role">Desarrollador</div>
+                            <p class="member-bio">Especialista en tecnologías web modernas, Anghel es responsable de la arquitectura técnica y el desarrollo de nuestras soluciones. Su experiencia abarca desde frontend hasta backend.</p>
+                            <div class="social-links">
+                            <a href="#">Correo Electrónico</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="{{ asset('assets/img/fotos/carlos.jpg') }}" alt="Foto de Carlos" class="member-img">
+                        <div class="member-info">
+                            <h3 class="member-name">Carlos Andrés Rueda Ortega</h3>
+                            <div class="member-role">Desarrollador</div>
+                            <p class="member-bio">Especialista en tecnologías web modernas, Carlos es responsable de la arquitectura técnica y el desarrollo de nuestras soluciones. Su experiencia abarca desde frontend hasta backend.</p>
+                            <div class="social-links">
+                                <a href="#">Correo Electrónico</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="company-values">
+                <h2>Nuestros Valores</h2>
+                <p>Estos son los principios que guían nuestro trabajo y nuestra relación con los clientes:</p>
+
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">✨</div>
+                        <h3>Innovación</h3>
+                        <p>Buscamos constantemente nuevas formas de resolver problemas y mejorar experiencias digitales.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">🤝</div>
+                        <h3>Colaboración</h3>
+                        <p>Trabajamos en estrecha colaboración con nuestros clientes, considerándolos parte integral del proceso creativo.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">⚡</div>
+                        <h3>Excelencia</h3>
+                        <p>Nos esforzamos por alcanzar los más altos estándares en cada aspecto de nuestro trabajo.</p>
+                    </div>
+
+                    <div class="value-item">
+                        <div class="value-icon">🚀</div>
+                        <h3>Resultados</h3>
+                        <p>Nos enfocamos en crear soluciones que generen un impacto positivo y medible para nuestros clientes.</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
-    <div class="plantas-plant-info">
-        <div class="plantas-info-section">
-            <h2>Características</h2>
-            <ul>
-                <li><strong>Altura:</strong> 90 cm a 1.8 m</li>
-                <li><strong>Diámetro de copa:</strong> 45 cm a 90 cm</li>
-                <li><strong>Época de floración:</strong> Durante todo el año</li>
-                <li><strong>Temperatura ideal:</strong> 20 - 38 ℃</li>
-                <li><strong>Luz:</strong> Pleno sol</li>
-                <li><strong>Suelo:</strong> Bien drenado, mezcla para macetas o tierra de jardín</li>
-            </ul>
-        </div>
-
-        <div class="plantas-info-section">
-            <h2>Cuidados</h2>
-            <ul>
-                <li><strong>Riego:</strong> Cada 3 semanas, dejando que el suelo se seque entre riegos</li>
-                <li><strong>Fertilización:</strong> Abonar trimestralmente en primavera y verano con fertilizante diluido para suculentas</li>
-                <li><strong>Propagación:</strong> Mediante esquejes de tallo de 3-6 pulgadas, dejándolos secar antes de plantar</li>
-                <li><strong>Trasplante:</strong> Cambiar de maceta cada 2-3 años en primavera, utilizando una maceta un poco más grande y riego mínimo posterior</li>
-            </ul>
-        </div>
-
-        <div class="plantas-info-section">
-            <h2>Información adicional</h2>
-            <p>Es una planta resistente a la sequía que prospera en interiores y exteriores con un mantenimiento cuidadoso.</p>
-        </div>
-    </div>
-
-    <button class="boxed-btn" onclick="location.href='{{ route('catalogo') }}'">Regresar</button>
-
-</div>
 </main>
 
 

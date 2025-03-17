@@ -10,13 +10,9 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/nosotros', function () {
+    return view('nosotros');
+})->name('nosotros');
 
 Route::get('/contact_process', function () {
     return view('contact_process');

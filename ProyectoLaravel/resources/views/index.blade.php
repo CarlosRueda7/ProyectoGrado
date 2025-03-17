@@ -60,8 +60,7 @@
                                             <ul id="navigation">                                                                                          
                                             <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
-                                                <li><a href="{{ route('blog') }}">Blog</a></li>
-                                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                                <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
                                                 <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Sign Up</a></li>
                                                 <li class="button-header"><a href="{{ route('login') }}" class="btn3">Sign In</a></li>
