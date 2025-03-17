@@ -52,7 +52,7 @@
 
 /*CATALOGO*/
 
-.suegra-body {
+.plantas-body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
@@ -60,14 +60,14 @@
     color: #646D77;
 }
 
-.suegra-header {
+.plantas-header {
     background-color: #2D0A31;
     color: white;
     text-align: center;
     padding: 1rem;
 }
 
-.suegra-container {
+.plantas-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -78,13 +78,13 @@
     margin-bottom: 2rem;
 }
 
-.suegra-plant-header {
+.plantas-plant-header {
     display: flex;
     align-items: center;
     margin-bottom: 2.5rem;
 }
 
-.suegra-plant-image {
+.plantas-plant-image {
     width: 300px;
     height: 300px;
     object-fit: cover;
@@ -92,20 +92,20 @@
     margin-right: 2rem;
 }
 
-.suegra-plant-title h1 {
+.plantas-plant-title h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     color: #F067FF;
     margin-bottom: 1rem;
 }
 
-.suegra-scientific-name {
+.plantas-scientific-name {
     font-style: italic;
     color: #A5A7C5;
     margin-bottom: 1.5rem;
 }
 
-.suegra-info-section h2 {
+.plantas-info-section h2 {
     font-family: 'Poppins', sans-serif;
     color: #F067FF;
     border-bottom: 2px solid #F067FF;
@@ -113,15 +113,15 @@
     margin-bottom: 2rem;
 }
 
-.suegra-info-section ul {
+.plantas-info-section ul {
     padding-left: 1.5rem;
 }
 
-.suegra-info-section li {
+.plantas-info-section li {
     margin-bottom: 1rem;
 }
 
-.suegra-back-button {
+.plantas-back-button {
     background-color: white;
     color: #F067FF;
     border: 1px solid #F067FF;
@@ -136,12 +136,12 @@
     letter-spacing: 0.5px;  /* Mejora la legibilidad */
 }
 
-.suegra-back-button:hover {
+.plantas-back-button:hover {
     background-color: #F067FF;
     color: white;
 }
 
-.suegra-footer {
+.plantas-footer {
     background-color: #2D0A31;
     color: white;
     text-align: center;

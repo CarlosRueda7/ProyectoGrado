@@ -59,7 +59,7 @@
                                         <nav>
                                             <ul id="navigation">                                                                                          
                                             <li><a href="{{ route('index') }}">Home</a></li>
-                                                <li><a href="{{ route('help') }}">Catálogo</a></li>
+                                                <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 <!-- Button -->

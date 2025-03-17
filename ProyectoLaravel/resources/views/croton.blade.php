@@ -61,7 +61,7 @@
                                         <nav>
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="{{ route('index') }}">Home</a></li>
-                                                <li><a href="{{ route('help') }}">Catálogo</a></li>
+                                                <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('blog') }}">Blog</a></li>
                                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                                 <!-- Button -->
@@ -84,88 +84,64 @@
         <!-- Header End -->
     </header>
     <main>
-        <!-- Slider Area Start-->
-        <div class="slider-area slider-bg ">
-            <!-- Single Slider -->
-            <div class="single-slider d-flex align-items-center slider-height3">
-                <div class="container">
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-xl-8 col-lg-9 col-md-12 ">
-                            <div class="hero__caption hero__caption3 text-center">
-                                <h1 data-animation="fadeInLeft" data-delay=".6s ">CATÁLOGO DE PLANTAS</h1>
-                            </div>
-                        </div>
+<!-- Slider Area Start-->
+<div class="slider-area slider-bg ">
+    <!-- Single Slider -->
+    <div class="single-slider d-flex align-items-center slider-height3">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8 col-lg-9 col-md-12 ">
+                    <div class="hero__caption hero__caption3 text-center">
+                        <h1 data-animation="fadeInLeft" data-delay=".6s ">CROTÓN DE JARDÍN</h1>
                     </div>
                 </div>
-            </div>    
-            <!-- Slider Shape -->
-            <div class="slider-shape d-none d-lg-block">
-                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
             </div>
         </div>
     </div>
-    </div>
-    <div class="container section-padding">
-        <div class="plants-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Planta 1: Sansevieria -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/suegra.jpg') }}" alt="Sansevieria" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Sansevieria</h2>
-        <button class="boxed-btn" onclick="location.href='{{ route('suegra') }}'">Más información</button>
-    </div>
 </div>
 
-<!-- Planta 2: Corona de Cristo -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/corona.jpg') }}" alt="Corona de Cristo" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Corona de Cristo</h2>
-        <button class="boxed-btn" onclick="location.href='planta-corona-cristo.html'">Más información</button>
-    </div>
-</div>
-
-<!-- Planta 3: Palo de Brasil -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/palo.jpg') }}" alt="Palo de Brasil" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Palo de Brasil</h2>
-        <button class="boxed-btn" onclick="location.href='planta-palo-brasil.html'">Más información</button>
-    </div>
-</div>
-
-<!-- Planta 4: Aloe Vera -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/aloe.jpeg') }}" alt="Aloe Vera" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Aloe Vera</h2>
-        <button class="boxed-btn" onclick="location.href='planta-aloe-vera.html'">Más información</button>
-    </div>
-</div>
-
-<!-- Planta 5: Cóleo -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/coleo.jpg') }}" alt="Cóleo" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Cóleo</h2>
-        <button class="boxed-btn" onclick="location.href='planta-coleo.html'">Más información</button>
-    </div>
-</div>
-
-<!-- Planta 6: Crotón de jardín -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/croton.jpeg') }}" alt="Crotón de Jardín" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Crotón de Jardín</h2>
-        <button class="boxed-btn" onclick="location.href='planta-croton.html'">Más información</button>
-    </div>
-</div>
+<div class="plantas-container">
+    <div class="plantas-plant-header">
+        <img src="{{ asset('assets/img/flores/croton.jpeg') }}" alt="Crotón de Jardín" class="plantas-plant-image">
+        <div class="plantas-plant-title">
+            <h1>Crotón de Jardín</h1>
+            <p class="plantas-scientific-name">Codiaeum variegatum</p>
+            <p>El Crotón de Jardín es un arbusto perenne conocido por su follaje vibrante con colores como rojo, amarillo, naranja y verde.</p>
         </div>
     </div>
 
+    <div class="plantas-plant-info">
+        <div class="plantas-info-section">
+            <h2>Características</h2>
+            <ul>
+                <li><strong>Altura:</strong> 1 m a 3 m</li>
+                <li><strong>Diámetro de copa:</strong> 1 m</li>
+                <li><strong>Color de las hojas:</strong> Verde, rojo, amarillo, naranja</li>
+                <li><strong>Color de las flores:</strong> Blanco, amarillo</li>
+                <li><strong>Temperatura ideal:</strong> 20 - 41°C</li>
+            </ul>
+        </div>
 
+        <div class="plantas-info-section">
+            <h2>Cuidados</h2>
+            <ul>
+                <li><strong>Riego:</strong> Cada 1-2 semanas, manteniendo la humedad constante</li>
+                <li><strong>Luz:</strong> Luz solar parcial para mantener los colores intensos</li>
+                <li><strong>Fertilización:</strong> Cada 2-4 semanas durante primavera y verano</li>
+                <li><strong>Cambio de maceta:</strong> Cada 2-3 años, preferiblemente en primavera</li>
+            </ul>
+        </div>
 
-    </main>
+        <div class="plantas-info-section">
+            <h2>Información adicional</h2>
+            <p>El Crotón es una planta ornamental que requiere humedad constante y buena iluminación para mantener su colorido follaje.</p>
+        </div>
+    </div>
+
+    <button class="boxed-btn" onclick="location.href='{{ route('catalogo') }}'">Regresar</button>
+
+</div>
+</main>
 
     <footer>
     <div class="footer-wrappr " data-background="assets/img/gallery/footer-bg.png">

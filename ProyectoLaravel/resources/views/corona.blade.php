@@ -92,7 +92,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-8 col-lg-9 col-md-12 ">
                     <div class="hero__caption hero__caption3 text-center">
-                        <h1 data-animation="fadeInLeft" data-delay=".6s ">LENGUA DE SUEGRA</h1>
+                        <h1 data-animation="fadeInLeft" data-delay=".6s ">CORONA DE CRISTO</h1>
                     </div>
                 </div>
             </div>
@@ -102,11 +102,11 @@
 
 <div class="plantas-container">
     <div class="plantas-plant-header">
-        <img src="{{ asset('assets/img/flores/suegra.jpg') }}" alt="Sansevieria" class="plantas-plant-image">
+        <img src="{{ asset('assets/img/flores/corona.jpg') }}" alt="Corona de Cristo" class="plantas-plant-image">
         <div class="plantas-plant-title">
-            <h1>Sansevieria</h1>
-            <p class="plantas-scientific-name">Sansevieria trifasciata</p>
-            <p>También conocida como lengua de tigre o de suegra, la Sansevieria es una planta suculenta y perenne, popular por sus hojas decorativas y su resistencia a condiciones climáticas adversas.</p>
+            <h1>Corona de Cristo</h1>
+            <p class="plantas-scientific-name">Euphorbia milii</p>
+            <p>La Corona de Cristo es un arbusto suculento y perenne con tallos espinosos y flores brillantes. Se cree que fue la planta utilizada para la corona de Jesucristo, de ahí su nombre común.</p>
         </div>
     </div>
 
@@ -114,28 +114,28 @@
         <div class="plantas-info-section">
             <h2>Características</h2>
             <ul>
-                <li><strong>Tipo de planta:</strong> Suculenta, perenne</li>
-                <li><strong>Altura:</strong> 30 cm a 2 m</li>
-                <li><strong>Color:</strong> Predominantemente verde</li>
-                <li><strong>Toxicidad:</strong> Tóxica para humanos, gatos y perros si se ingiere</li>
+                <li><strong>Altura:</strong> 90 cm a 1.8 m</li>
+                <li><strong>Diámetro de copa:</strong> 45 cm a 90 cm</li>
+                <li><strong>Época de floración:</strong> Durante todo el año</li>
+                <li><strong>Temperatura ideal:</strong> 20 - 38 ℃</li>
+                <li><strong>Luz:</strong> Pleno sol</li>
+                <li><strong>Suelo:</strong> Bien drenado, mezcla para macetas o tierra de jardín</li>
             </ul>
         </div>
 
         <div class="plantas-info-section">
             <h2>Cuidados</h2>
             <ul>
-                <li><strong>Riego:</strong> Cada 3 semanas; tolerante a la sequía</li>
-                <li><strong>Luz:</strong> Prefiere sol parcial</li>
-                <li><strong>Fertilización:</strong> Cada 3-4 semanas en primavera y verano, evitando en invierno</li>
-                <li><strong>Poda:</strong> Retirar hojas secas o amarillas</li>
-                <li><strong>Propagación:</strong> Usar esquejes de hoja en suelo bien drenado</li>
-                <li><strong>Cambio de maceta:</strong> Cada 2 años, a finales de invierno, en macetas más grandes con buen drenaje</li>
+                <li><strong>Riego:</strong> Cada 3 semanas, dejando que el suelo se seque entre riegos</li>
+                <li><strong>Fertilización:</strong> Abonar trimestralmente en primavera y verano con fertilizante diluido para suculentas</li>
+                <li><strong>Propagación:</strong> Mediante esquejes de tallo de 3-6 pulgadas, dejándolos secar antes de plantar</li>
+                <li><strong>Trasplante:</strong> Cambiar de maceta cada 2-3 años en primavera, utilizando una maceta un poco más grande y riego mínimo posterior</li>
             </ul>
         </div>
 
         <div class="plantas-info-section">
             <h2>Información adicional</h2>
-            <p>Su mantenimiento es sencillo, lo que la hace ideal para interiores y ayuda a purificar el aire. La Sansevieria es una planta muy resistente que puede sobrevivir con poca atención, haciéndola perfecta para principiantes o personas con poco tiempo para el cuidado de plantas.</p>
+            <p>Es una planta resistente a la sequía que prospera en interiores y exteriores con un mantenimiento cuidadoso.</p>
         </div>
     </div>
 

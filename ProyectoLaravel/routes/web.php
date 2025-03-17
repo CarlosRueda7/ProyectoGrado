@@ -22,13 +22,9 @@ Route::get('/contact_process', function () {
     return view('contact_process');
 })->name('contact_process');
 
-Route::get('/elements', function () {
-    return view('elements');
-})->name('elements');
-
-Route::get('/help', function () {
-    return view('help');
-})->name('help');
+Route::get('/catalogo', function () {
+    return view('catalogo');
+})->name('catalogo');
 
 Route::get('/login', function () {
     return view('login');
@@ -42,11 +38,26 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
-
 Route::get('/suegra', function () {
     return view('suegra');
 })->name('suegra');
 
+Route::get('/corona', function () {
+    return view('corona');
+})->name('corona');
+
+Route::get('/palo', function () {
+    return view('palo');
+})->name('palo');
+
+Route::get('/aloe', function () {
+    return view('aloe');
+})->name('aloe');
+
+Route::get('/coleo', function () {
+    return view('coleo');
+})->name('coleo');
+
+Route::get('/croton', function () {
+    return view('croton');
+})->name('croton');
