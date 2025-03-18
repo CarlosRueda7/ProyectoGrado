@@ -44,38 +44,37 @@
 
 <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
     <!-- Login Admin -->
-    <form class="form-default" action="login-bg.mp4" method="POST">
-        
-        <div class="login-form">
-            <!-- logo-login -->
-            <div class="logo-login">
-                <a href="{{ route('index') }}"><img src="assets/img/logo/loder.png" alt=""></a>
-            </div>
-            <h2>Registration Here</h2>
-
-            <div class="form-input">
-                <label for="name">Full name</label>
-                <input  type="text" name="name" placeholder="Full name">
-            </div>
-            <div class="form-input">
-                <label for="name">Email Address</label>
-                <input type="email" name="email" placeholder="Email Address">
-            </div>
-            <div class="form-input">
-                <label for="name">Password</label>
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-input">
-                <label for="name">Confirm Password</label>
-                <input type="password" name="password" placeholder="Confirm Password">
-            </div>
-            <div class="form-input pt-30">
-                <input type="submit" name="submit" value="Registration">
-            </div>
-            <!-- Forget Password -->
-            <a href="{{ route('login') }}" class="registration">login</a>
+    <form class="form-default" action="{{ route('register') }}" method="POST">
+    @csrf
+    <div class="login-form">
+        <div class="logo-login">
+            <a href="{{ route('index') }}"><img src="assets/img/logo/loder.png" alt=""></a>
         </div>
-    </form>
+        <h2>Registro</h2>
+
+        <div class="form-input">
+            <label for="name">Nombre Completo</label>
+            <input type="text" name="name" placeholder="Nombre Completo" required>
+        </div>
+        <div class="form-input">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+        </div>
+        <div class="form-input">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" placeholder="Contraseña" required>
+        </div>
+        <div class="form-input">
+            <label for="password_confirmation">Confirmar Contraseña</label>
+            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+        </div>
+        <div class="form-input pt-30">
+            <input type="submit" name="submit" value="Registrarse">
+        </div>
+        <a href="{{ route('login') }}" class="registration">Iniciar Sesión</a>
+    </div>
+</form>
+
     <!-- /end login form -->
 </main>
 

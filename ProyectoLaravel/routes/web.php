@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('index');
-})->name('index');
+    return redirect()->route('login');
+});
 
 Route::get('/about', function () {
     return view('about');
@@ -57,3 +57,18 @@ Route::get('/coleo', function () {
 Route::get('/croton', function () {
     return view('croton');
 })->name('croton');
+
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+
+
+use App\Http\Controllers\AuthController;
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/dashboard', function () {
+    return view('dashboard'); // Asegúrate de tener la vista dashboard.blade.php en resources/views/
+})->name('dashboard')->middleware('auth');
+
+Route::post('/register', [AuthController::class, 'register'])->name('register');

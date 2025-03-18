@@ -27,27 +27,31 @@
 </head>
 <body>
     <main class="login-body" data-vide-bg="assets/img/login-bg.mp4">
-        <form class="form-default" action="login-bg.mp4" method="POST">
-            <div class="login-form">
-                <div class="logo-login">
-                    <a href="{{ route('index') }}"><img src="assets/img/logo/loder.png" alt=""></a>
-                </div>
-                <h2>Login Here</h2>
-                <div class="form-input">
-                    <label for="name">Email</label>
-                    <input type="email" name="email" placeholder="Email">
-                </div>
-                <div class="form-input">
-                    <label for="name">Password</label>
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="form-input pt-30">
-                    <input type="submit" name="submit" value="login">
-                </div>
-                <a href="#" class="forget">Forget Password</a>
-                <a href="{{ route('register') }}" class="registration">Registration</a>
-            </div>
-        </form>
+    <form class="form-default" action="{{ route('login') }}" method="POST">
+    @csrf
+    <div class="login-form">
+        <div class="logo-login">
+            <a href="{{ route('index') }}"><img src="assets/img/logo/loder.png" alt=""></a>
+        </div>
+        <h2>Login Here</h2>
+        <div class="form-input">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-input">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-input pt-30">
+            <input type="submit" name="submit" value="Login">
+        </div>
+        <div class="form-input pt-10 text-center">
+    <p>¿No tienes una cuenta? <a href="{{ route('register') }}">Registrarse</a></p>
+</div>
+
+    </div>
+</form>
+
     </main>
     
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
