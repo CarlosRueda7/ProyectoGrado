@@ -62,8 +62,7 @@
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
                                                 <!-- Button -->
-                                                <li class="button-header margin-left "><a href="{{ route('register') }}" class="btn">Sign Up</a></li>
-                                                <li class="button-header"><a href="{{ route('login') }}" class="btn3">Sign In</a></li>
+                                                <li class="button-header margin-left "><a href="{{ route('perfil') }}" class="btn">Mi Perfil</a></li>
                                             </ul>
                                         </nav>
                                     </div>

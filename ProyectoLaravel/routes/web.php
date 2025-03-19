@@ -1,6 +1,9 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PerfilController; // Asegúrate de importar esto
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -62,8 +65,11 @@ Route::get('/index', function () {
     return view('index');
 })->name('index');
 
+Route::get('/perfil', function () {
+    return view('perfil');
+})->name('perfil');
 
-use App\Http\Controllers\AuthController;
+
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
@@ -72,3 +78,5 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::put('/perfil', [PerfilController::class, 'update'])->name('perfil.update');

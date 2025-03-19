@@ -307,3 +307,312 @@
 #about-us-page section p {
     text-align: justify;
 }
+
+/* Estilos para el perfil de usuario */
+.perfil-container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+.perfil-container h1 {
+    color: #4C1E51;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid #F067FF;
+    padding-bottom: 15px;
+}
+
+.perfil-container h2 {
+    color: #4C1E51;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.perfil-info {
+    margin-bottom: 25px;
+}
+
+.perfil-data-row {
+    display: flex;
+    padding: 15px;
+    background: #f7f7fd;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid #F067FF;
+    transition: all 0.3s ease;
+}
+
+.perfil-data-row:hover {
+    background: #f1f4fa;
+    transform: translateX(5px);
+}
+
+.perfil-label {
+    font-weight: bold;
+    color: #4C1E51;
+    width: 40%;
+}
+
+.perfil-value {
+    color: #4C1E51;
+    width: 60%;
+}
+
+.perfil-edit-form {
+    margin-top: 25px;
+    padding: 25px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.perfil-form-group {
+    margin-bottom: 20px;
+}
+
+.perfil-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4C1E51;
+    font-weight: 500;
+}
+
+.perfil-form-group input[type="text"],
+.perfil-form-group input[type="email"],
+.perfil-form-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.3s ease;
+}
+
+.perfil-form-group input:focus {
+    border-color: #F067FF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(240, 103, 255, 0.3);
+}
+
+.perfil-form-group input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.perfil-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.perfil-boxed-btn {
+    background-color: #F067FF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.perfil-boxed-btn:hover {
+    background-color: #fff;
+    color: #F067FF;
+    border: 1px solid #F067FF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-btn-cancel {
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.perfil-btn-cancel:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .perfil-container {
+        padding: 20px;
+        margin: 15px;
+        width: auto;
+    }
+    
+    .perfil-data-row {
+        flex-direction: column;
+    }
+    
+    .perfil-label, .perfil-value {
+        width: 100%;
+    }
+    
+    .perfil-label {
+        margin-bottom: 5px;
+    }
+    
+    .perfil-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Estilos del modal mejorado */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Fondo semitransparente más oscuro */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #f44336; /* Borde rojo a la izquierda */
+    position: relative;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    color: #333;
+    background-color: #f1f1f1;
+}
+
+.modal-icon {
+    font-size: 40px;
+    color: #f44336;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    color: #f44336;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.modal-message {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.modal-button:hover {
+    background-color: #d32f2f;
+}
+
+/*register contraseña*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-button:hover {
+    background-color: #0056b3;
+}
+

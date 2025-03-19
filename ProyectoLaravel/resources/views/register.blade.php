@@ -78,6 +78,78 @@
     <!-- /end login form -->
 </main>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let passwordField = document.querySelector('input[name="password"]');
+    let passwordConfirmField = document.querySelector('input[name="password_confirmation"]');
+    let registerForm = document.querySelector('.form-default');
+    
+    // Modal de error
+    let errorModal = document.createElement("div");
+    errorModal.innerHTML = `
+        <div id="error-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-modal">&times;</span>
+                <div class="modal-icon">⚠️</div>
+                <h3 class="modal-title">Error de validación</h3>
+                <p class="modal-message" id="error-message"></p>
+                <button class="modal-button" id="ok-button">Entendido</button>
+            </div>
+        </div>`;
+    document.body.appendChild(errorModal);
+
+    let modal = document.getElementById("error-modal");
+    let closeModal = document.getElementById("close-modal");
+    let okButton = document.getElementById("ok-button");
+    let errorMessage = document.getElementById("error-message");
+
+    function showModal(message) {
+        errorMessage.innerText = message;
+        modal.classList.add("show");
+    }
+
+    function closeModalHandler() {
+        modal.classList.remove("show");
+    }
+
+    closeModal.addEventListener("click", closeModalHandler);
+    okButton.addEventListener("click", closeModalHandler);
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) closeModalHandler();
+    });
+
+    registerForm.addEventListener("submit", function (event) {
+        let password = passwordField.value;
+        let confirmPassword = passwordConfirmField.value;
+
+        // Validaciones de la contraseña
+        let regexUpperCase = /[A-Z]/;
+        let regexLowerCase = /[a-z]/;
+        let regexNumber = /[0-9]/;
+        let regexSpecialChar = /[\W]/;
+
+        if (
+            password.length < 8 ||
+            !regexUpperCase.test(password) ||
+            !regexLowerCase.test(password) ||
+            !regexNumber.test(password) ||
+            !regexSpecialChar.test(password)
+        ) {
+            event.preventDefault();
+            showModal("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            event.preventDefault();
+            showModal("Las contraseñas no coinciden.");
+            return;
+        }
+    });
+});
+</script>
+
+
 
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->

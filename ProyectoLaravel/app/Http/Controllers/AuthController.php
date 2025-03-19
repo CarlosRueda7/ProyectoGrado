@@ -30,22 +30,33 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        // Validar los datos del formulario
+        // Validar los datos del formulario con los requisitos de contraseña
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => [
+                'required',
+                'min:8',
+                'regex:/[A-Z]/',      // Al menos una mayúscula
+                'regex:/[a-z]/',      // Al menos una minúscula
+                'regex:/[0-9]/',      // Al menos un número
+                'regex:/[\W]/',       // Al menos un carácter especial
+                'confirmed'
+            ],
+        ], [
+            'password.regex' => 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
         ]);
-
-        // Crear un nuevo usuario
-        $user = User::create([
+    
+        // Crear el usuario sin autenticarlo
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Encriptar la contraseña
+            'password' => Hash::make($request->password),
         ]);
-
-        // Autenticar al usuario y redirigirlo
-        Auth::login($user);
-        return redirect()->route('index'); // Redirige a la página principal después del registro
+    
+        // Redirigir al login
+        return redirect()->route('login')->with('success', 'Registro exitoso. Inicia sesión para continuar.');
     }
+    
 }
