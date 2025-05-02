@@ -123,14 +123,6 @@
     </div>
 </div>
 
-<!-- Planta 3: Palo de Brasil -->
-<div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-    <img src="{{ asset('assets/img/flores/palo.jpg') }}" alt="Palo de Brasil" class="plant-image">
-    <div class="plant-info p-6 text-center">
-        <h2 class="plant-name theme-color text-2xl mb-4">Palo de Brasil</h2>
-        <button class="boxed-btn" onclick="location.href='{{ route('palo') }}'">Más información</button>
-    </div>
-</div>
 
 <!-- Planta 4: Aloe Vera -->
 <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
