@@ -1,9 +1,9 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PerfilController; // Asegúrate de importar esto
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\DispositivoController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -69,14 +69,18 @@ Route::get('/perfil', function () {
     return view('perfil');
 })->name('perfil');
 
-
-
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-
 Route::get('/dashboard', function () {
-    return view('dashboard'); // Asegúrate de tener la vista dashboard.blade.php en resources/views/
+    return view('dashboard');
 })->name('dashboard')->middleware('auth');
-
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-
 Route::put('/perfil', [PerfilController::class, 'update'])->name('perfil.update');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dispositivos', [DispositivoController::class, 'index'])->name('dispositivos.index');
+    Route::get('/dispositivos/data', [DispositivoController::class, 'getDispositivos'])->name('dispositivos.data');
+    Route::post('/dispositivos', [DispositivoController::class, 'store'])->name('dispositivos.store');
+    Route::get('/dispositivos/create', [DispositivoController::class, 'create'])->name('dispositivos.create');
+    Route::get('/dispositivos/{id}', [DispositivoController::class, 'show'])->name('dispositivos.show');
+    Route::delete('/dispositivos/{dispositivo}', [DispositivoController::class, 'destroy'])->middleware('auth');
+});

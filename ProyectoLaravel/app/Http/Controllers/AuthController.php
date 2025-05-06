@@ -16,18 +16,27 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
+    
         // Verificar credenciales
         $user = User::where('email', $request->email)->first();
-
-        if ($user && Hash::check($request->password, $user->password)) {
-            Auth::login($user);
-            return redirect()->route('index'); // Redirige a la página principal
+    
+        \Log::info('Intento de inicio de sesión para el correo electrónico: ' . $request->email); // Agrega esto
+        if ($user) {
+            \Log::info('Usuario encontrado en la base de datos.');  // Agrega esto
+            if (Hash::check($request->password, $user->password)) {
+                \Log::info('Contraseña verificada.'); // Agrega esto
+                Auth::login($user);
+                return redirect()->route('index'); // Redirige a la página principal
+            } else {
+                \Log::warning('Contraseña incorrecta.'); // Agrega esto
+            }
+        } else {
+            \Log::warning('Usuario no encontrado.'); // Agrega esto
         }
-
+    
         return back()->withErrors(['email' => 'Las credenciales son incorrectas.']);
     }
-
+    
     public function register(Request $request)
     {
         // Validar los datos del formulario con los requisitos de contraseña

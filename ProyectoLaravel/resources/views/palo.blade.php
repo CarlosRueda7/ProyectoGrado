@@ -63,6 +63,7 @@
                                                 <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
+                                                <li><a href="{{ route('dispositivos.index') }}">Mis Dispositivos</a></li>
                                                 <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{ route('perfil') }}" class="btn">Mi Perfil</a></li>
                                             </ul>

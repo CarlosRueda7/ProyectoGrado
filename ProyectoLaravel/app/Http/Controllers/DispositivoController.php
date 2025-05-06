@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Dispositivo;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
+class DispositivoController extends Controller
+{
+    /**
+     * Muestra la vista de los dispositivos del usuario autenticado.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
+        return view('dispositivos');
+    }
+
+    /**
+     * Obtiene los dispositivos del usuario autenticado en formato JSON.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getDispositivos()
+    {
+        $dispositivos = Auth::user()->dispositivos()->get();
+        return response()->json(['success' => true, 'dispositivos' => $dispositivos]);
+    }
+
+    /**
+     * Guarda un nuevo dispositivo para el usuario autenticado.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request)
+    {
+        $rules = [
+            'id_dispositivo' => 'required|string|max:255',
+            'planta_seleccionada' => 'required|string|max:255',
+            'nombre_planta' => 'required|string|max:255', // ¡Añade esta regla de validación!
+        ];
+    
+        $validator = Validator::make($request->all(), $rules);
+    
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'message' => 'Error de validación', 'errors' => $validator->errors()], 422);
+        }
+    
+        try {
+            $dispositivo = Auth::user()->dispositivos()->create([
+                'id_dispositivo' => $request->id_dispositivo,
+                'planta_seleccionada' => $request->planta_seleccionada,
+                'nombre_planta' => $request->nombre_planta, // ¡Añade esta línea para guardar el nombre de la planta!
+            ]);
+    
+            if ($dispositivo) {
+                return response()->json(['success' => true, 'message' => 'Dispositivo guardado correctamente']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Error al guardar el dispositivo (problema interno)']);
+            }
+        } catch (\Exception $e) {
+            \Log::error('Error al guardar dispositivo: ' . $e->getMessage());
+            return response()->json(['success' => false, 'message' => 'Error al guardar el dispositivo (excepción)', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Muestra los detalles de un dispositivo específico.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $dispositivo = Auth::user()->dispositivos()->findOrFail($id);
+        return view('dispositivo.show', compact('dispositivo'));
+    }
+    public function destroy(Dispositivo $dispositivo)
+{
+    if (Auth::user()->id !== $dispositivo->user_id) {
+        return response()->json(['success' => false, 'message' => 'No estás autorizado para eliminar este dispositivo.'], 403);
+    }
+
+    try {
+        $dispositivo->delete();
+        return response()->json(['success' => true, 'message' => 'Dispositivo eliminado correctamente']);
+    } catch (\Exception $e) {
+        \Log::error('Error al eliminar dispositivo: ' . $e->getMessage());
+        return response()->json(['success' => false, 'message' => 'Error al eliminar el dispositivo (excepción)', 'error' => $e->getMessage()], 500);
+    }
+}
+
+    /**
+     * Muestra el formulario para crear un nuevo dispositivo (opcional).
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('dispositivo.create');
+    }
+}
