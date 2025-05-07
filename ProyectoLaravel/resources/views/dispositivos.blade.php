@@ -182,6 +182,7 @@
         margin-top: 50px;
         font-size: 1rem;
         margin: 10px; /* Added margin */
+        margin-top: 30px;
     }
 
     #formularioAgregarDispositivo .btn-success:hover {
@@ -198,6 +199,7 @@
         margin-top: 50px;
         font-size: 1rem;
         margin: 10px; /* Added margin */
+        margin-top: 30px;
     }
 
     #formularioAgregarDispositivo .btn-secondary:hover {
@@ -209,6 +211,76 @@
         #listaDispositivos {
             grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Fuerza 2 columnas */
         }
+    }
+       /* Estilos para el modal de alerta personalizado (CENTRADOO - FORZADO) */
+       #customAlert {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Cubre toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    justify-content: center !important; /* Centra horizontalmente - ¡IMPORTANTE! */
+    align-items: center !important; /* Centra verticalmente - ¡IMPORTANTE! */
+    z-index: 1050 !important; /* Asegura que esté por encima de otros elementos - ¡IMPORTANTE! */
+}
+
+    .alert-content {
+        background-color: #fefefe;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        /* No necesitamos position: center; aquí para el centrado flexbox */
+    }
+
+    .alert-header {
+        padding: 10px 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .alert-header h4 {
+        margin: 0;
+        color: #d9534f; /* Color rojo para indicar error */
+        font-weight: bold;
+    }
+
+    .alert-body {
+        padding: 15px 0;
+    }
+
+    .alert-body p {
+        margin: 0;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .alert-footer {
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        text-align: right;
+    }
+
+    .alert-button {
+        background-color: #5cb85c; /* Color verde para aceptar */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .alert-button:hover {
+        background-color: #4cae4c;
     }
 </style>
 
@@ -367,122 +439,150 @@
     <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <div id="customAlert" class="custom-alert">
+    <div class="alert-content">
+        <div class="alert-header">
+            <h4>¡Error!</h4>
+        </div>
+        <div class="alert-body">
+            <p id="alertMessage"></p>
+        </div>
+        <div class="alert-footer">
+            <button id="alertOkButton" class="alert-button">Aceptar</button>
+        </div>
+    </div>
+</div>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+    $(document).ready(function() {
+        cargarDispositivos();
+
+        $('#formNuevoDispositivo').submit(function(event) {
+            event.preventDefault();
+            agregarNuevoDispositivo();
         });
 
-        $(document).ready(function() {
-            cargarDispositivos();
+        // Asegúrate de que el modal esté oculto al inicio
+        $('#customAlert').hide();
+    });
 
-            $('#formNuevoDispositivo').submit(function(event) {
-                event.preventDefault();
-                agregarNuevoDispositivo();
-            });
-        });
-
-        function cargarDispositivos() {
-    $.ajax({
-        url: '/dispositivos/data',
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            $('#listaDispositivos').empty();
-            if (data.success && data.dispositivos.length > 0) {
-                $.each(data.dispositivos, function(index, dispositivo) {
-                    $('#listaDispositivos').append(`
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body d-flex flex-column justify-content-between">
-                                    <div class="mb-3">
-                                        <h5 class="card-title">${dispositivo.nombre_planta}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Planta: ${dispositivo.planta_seleccionada}</h6>
-                                        <p class="card-text small">ID: ${dispositivo.id_dispositivo}</p>
-                                    </div>
-                                    <div class="card-actions mt-2">
-                                        <a href="/dispositivos/${dispositivo.id}" class="btn btn-sm btn-primary me-2"><i class="fas fa-eye"></i> Ver Detalles</a>
-                                        <button class="btn btn-danger btn-sm" onclick="eliminarDispositivo(${dispositivo.id})"><i class="fas fa-trash-alt"></i> Eliminar</button>
+    function cargarDispositivos() {
+        $.ajax({
+            url: '/dispositivos/data',
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                $('#listaDispositivos').empty();
+                if (data.success && data.dispositivos.length > 0) {
+                    $.each(data.dispositivos, function(index, dispositivo) {
+                        $('#listaDispositivos').append(`
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div class="mb-3">
+                                            <h5 class="card-title">${dispositivo.nombre_planta}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Planta: ${dispositivo.planta_seleccionada}</h6>
+                                            <p class="card-text small">ID: ${dispositivo.id_dispositivo}</p>
+                                        </div>
+                                        <div class="card-actions mt-2">
+                                            <a href="/dispositivos/${dispositivo.id}" class="btn btn-sm btn-primary me-2"><i class="fas fa-eye"></i> Ver Detalles</a>
+                                            <button class="btn btn-danger btn-sm" onclick="eliminarDispositivo(${dispositivo.id})"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `);
-                });
-            } else {
-                $('#listaDispositivos').append('<div class="col"><div class="alert alert-info">No hay dispositivos registrados.</div></div>');
+                        `);
+                    });
+                } else {
+                    $('#listaDispositivos').append('<div class="col"><div class="alert alert-info">No hay dispositivos registrados.</div></div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error al cargar dispositivos:", error);
+                $('#listaDispositivos').append('<div class="col"><div class="alert alert-danger">Error de conexión con el servidor.</div></div>');
+                // No mostrar la alerta aquí para evitar que aparezca al inicio por error de carga
             }
-        },
-        error: function(xhr, status, error) {
-            console.error("Error al cargar dispositivos:", error);
-            $('#listaDispositivos').append('<div class="col"><div class="alert alert-danger">Error de conexión con el servidor.</div></div>');
-        }
+        });
+    }
+
+    function mostrarFormularioAgregar() {
+        $('#formularioAgregarDispositivo').show();
+    }
+
+    function ocultarFormularioAgregar() {
+        $('#formularioAgregarDispositivo').hide();
+        $('#mensajeResultado').empty();
+        $('#formNuevoDispositivo')[0].reset();
+    }
+
+    $(document).ready(function() {
+        $('#alertOkButton').click(function() {
+            $('#customAlert').fadeOut();
+        });
     });
-}
 
-        function mostrarFormularioAgregar() {
-            $('#formularioAgregarDispositivo').show();
-        }
+    function mostrarAlertaPersonalizada(mensaje) {
+        console.log("Mensaje a mostrar en la alerta:", mensaje);
+        $('#alertMessage').text(mensaje);
+        $('#customAlert').fadeIn();
+    }
 
-        function ocultarFormularioAgregar() {
-            $('#formularioAgregarDispositivo').hide();
-            $('#mensajeResultado').empty();
-            $('#formNuevoDispositivo')[0].reset();
-        }
+    function agregarNuevoDispositivo() {
+        $.ajax({
+            url: '/dispositivos',
+            method: 'POST',
+            dataType: 'json',
+            data: $('#formNuevoDispositivo').serialize(),
+            success: function(data) {
+                if (data.success) {
+                    $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message);
+                    console.log('Cargando dispositivos después de guardar');
+                    cargarDispositivos();
+                    $('#formNuevoDispositivo')[0].reset();
+                    setTimeout(ocultarFormularioAgregar, 2000);
+                } else {
+                    if (data.errors && data.errors.id_dispositivo) {
+                        mostrarAlertaPersonalizada(data.errors.id_dispositivo[0]);
+                    } else {
+                        $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message);
+                    }
+                    console.error("Error al agregar dispositivo:", data);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("DISPOSITIVO YA REGISTRADO", error);
+                mostrarAlertaPersonalizada('DISPOSITIVO YA REGISTRADO.');
+            }
+        });
+    }
 
-        function agregarNuevoDispositivo() {
+    function eliminarDispositivo(id) {
+        if (confirm('¿Estás seguro de que quieres eliminar este dispositivo?')) {
             $.ajax({
-                url: '/dispositivos',
-                method: 'POST',
+                url: '/dispositivos/' + id,
+                method: 'DELETE',
                 dataType: 'json',
-                data: $('#formNuevoDispositivo').serialize(),
                 success: function(data) {
                     if (data.success) {
                         $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message);
-                        console.log('Cargando dispositivos después de guardar');
                         cargarDispositivos();
-                        $('#formNuevoDispositivo')[0].reset();
-                        setTimeout(ocultarFormularioAgregar, 2000);
                     } else {
                         $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message);
-                        if (data.errors) {
-                            console.error("Errores de validación:", data.errors);
-                            // Aquí podrías mostrar los errores de validación específicos en el formulario
-                        }
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error("Error al agregar dispositivo:", error);
+                    console.error("Error al eliminar dispositivo:", error);
                     $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text('Error al comunicar con el servidor.');
                 }
             });
         }
-
-        function eliminarDispositivo(id) {
-    if (confirm('¿Estás seguro de que quieres eliminar este dispositivo?')) {
-        $.ajax({
-            url: '/dispositivos/' + id,
-            method: 'DELETE',
-            dataType: 'json',
-            success: function(data) {
-                if (data.success) {
-                    $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message);
-                    cargarDispositivos(); // Recargar la lista después de eliminar
-                } else {
-                    $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Error al eliminar dispositivo:", error);
-                $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text('Error al comunicar con el servidor.');
-            }
-        });
     }
-}
-    </script>
-
+</script>
 </body>
 </html>
 
