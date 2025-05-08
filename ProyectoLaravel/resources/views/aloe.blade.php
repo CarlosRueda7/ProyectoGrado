@@ -9,7 +9,6 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -26,10 +25,92 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+    /* Estilos específicos para la página de detalles de la planta */
+    .plantas-container {
+        background-color: #f7f7fd;
+        padding: 40px; /* Aumenta el padding para más espacio interior */
+        margin-top: 40px; /* Aumenta el margen superior */
+        font-family: "Open Sans", sans-serif;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+        max-width: 900px; /* Aumenta el ancho máximo del cuadro */
+        margin-left: auto;
+        margin-right: auto;
+        display: flex; /* Añadimos flex para ordenar los elementos */
+        flex-direction: column; /* Colocamos los elementos en columna */
+        align-items: center; /* Centramos los elementos horizontalmente (opcional) */
+    }
+
+    .plantas-plant-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px; /* Aumenta el margen inferior */
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px; /* Aumenta el padding inferior */
+        width: 100%; /* Aseguramos que el header ocupe todo el ancho */
+    }
+
+    .plantas-plant-image {
+        width: 180px; /* Aumenta el ancho de la imagen */
+        height: 180px; /* Aumenta la altura de la imagen */
+        border-radius: 10px;
+        object-fit: cover;
+        margin-right: 30px; /* Aumenta el margen derecho */
+    }
+
+    .plantas-plant-title h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2.5rem; /* Aumenta el tamaño del título */
+        color: #16161a;
+        margin-bottom: 8px; /* Aumenta el margen inferior */
+        line-height: 1.5; /* Aumenta el interlineado del título principal */
+    }
+
+    .plantas-plant-title p {
+        font-size: 1.2rem; /* Aumenta el tamaño del texto */
+        color: #777;
+        margin-bottom: 8px; /* Aumenta el margen inferior */
+    }
+
+    .boxed-btn {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.1rem; /* Aumenta el tamaño del botón */
+        font-weight: 400;
+        padding: 15px 30px; /* Aumenta el padding del botón */
+        border: 1px solid #F067FF;
+        color: #F067FF !important;
+        background: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 20px; /* Espacio superior (opcional) */
+        width: fit-content; /* Ajusta el ancho del botón al contenido */
+    }
+
+    .boxed-btn:hover {
+        background: #F067FF;
+        color: #fff !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 2rem; /* Aumenta el margen inferior del botón regresar */
+    }
+
+    .plantas-info-section h2 {
+        font-family: "Poppins", sans-serif;
+        color: #F067FF;
+        border-bottom: 2px solid #F067FF;
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem;
+        line-height: 2.5; /* Aumenta el interlineado de los subtítulos */
+    }
+</style>
 
 </head>
 <body>
-    <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -40,15 +121,12 @@
             </div>
         </div>
     </div>
-    <!-- Preloader Start -->
     <header>
-        <!-- Header Start -->
         <div class="header-area header-transparent">
             <div class="main-header ">
                 <div class="header-bottom  header-sticky">
                     <div class="container-fluid">
                         <div class="row align-items-center">
-                            <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
                                     <a href="{{ route('index') }}"><img src="assets/img/logo/logo.png" alt=""></a>
@@ -56,22 +134,19 @@
                             </div>
                             <div class="col-xl-10 col-lg-10">
                                 <div class="menu-wrapper d-flex align-items-center justify-content-end">
-                                    <!-- Main-menu -->
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
-                                            <ul id="navigation">                                                                                          
+                                            <ul id="navigation">                                                
                                                 <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
                                                 <li><a href="{{ route('dispositivos.index') }}">Mis Dispositivos</a></li>
-                                                <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{ route('perfil') }}" class="btn">Mi Perfil</a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                 </div>
                             </div> 
-                            <!-- Mobile Menu -->
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
@@ -80,12 +155,9 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-    </header>
+        </header>
     <main>
-<!-- Slider Area Start-->
 <div class="slider-area slider-bg ">
-    <!-- Single Slider -->
     <div class="single-slider d-flex align-items-center slider-height3">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -150,11 +222,9 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-caption mb-50">
-                                <!-- logo -->
                                 <div class="footer-logo mb-25">
                                     <a href="{{ route('index') }}"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
-                                <!-- imagen debajo del logo -->
                                 <div class="footer-img">
                                     <img src="assets/img/footer/footer-img.png" alt="">
                                 </div>
@@ -166,55 +236,41 @@
         </div>
     </footer>
 
-      <!-- Scroll Up -->
       <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
 
-    <!-- JS here -->
-
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
     <script src="./assets/js/jquery.slicknav.min.js"></script>
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="./assets/js/owl.carousel.min.js"></script>
     <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
     <script src="./assets/js/wow.min.js"></script>
     <script src="./assets/js/animated.headline.js"></script>
     <script src="./assets/js/jquery.magnific-popup.js"></script>
 
-    <!-- Date Picker -->
     <script src="./assets/js/gijgo.min.js"></script>
 
-    <!-- Video bg -->
     <script src="./assets/js/jquery.vide.js"></script>
 
-    <!-- Nice-select, sticky -->
     <script src="./assets/js/jquery.nice-select.min.js"></script>
     <script src="./assets/js/jquery.sticky.js"></script>
-    <!-- Progress -->
     <script src="./assets/js/jquery.barfiller.js"></script>
     
-    <!-- counter , waypoint,Hover Direction -->
     <script src="./assets/js/jquery.counterup.min.js"></script>
     <script src="./assets/js/waypoints.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
     <script src="./assets/js/hover-direction-snake.min.js"></script>
 
-    <!-- contact js -->
     <script src="./assets/js/contact.js"></script>
     <script src="./assets/js/jquery.form.js"></script>
     <script src="./assets/js/jquery.validate.min.js"></script>
     <script src="./assets/js/mail-script.js"></script>
     <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
     
-    <!-- Jquery Plugins, main Jquery -->	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
     

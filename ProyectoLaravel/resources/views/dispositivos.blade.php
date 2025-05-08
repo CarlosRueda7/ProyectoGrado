@@ -366,11 +366,11 @@
                             <label for="planta_seleccionada" class="form-label">Planta:</label>
                             <select class="form-select" id="planta_seleccionada" name="planta_seleccionada" required>
                                 <option value="">Seleccionar Planta</option>
-                                <option value="Sansevieria">Sansevieria</option>
-                                <option value="Corona de Cristo">Corona de Cristo</option>
-                                <option value="Aloe Vera">Aloe Vera</option>
-                                <option value="Cóleo">Cóleo</option>
-                                <option value="Crotón de Jardín">Crotón de Jardín</option>
+                                <option value="aloeOpcion">Aloe Vera</option>
+                                <option value="coleoOpcion">Cóleo</option>
+                                <option value="coronaOpcion">Corona de Cristo</option>
+                                <option value="crotonOpcion">Crotón de Jardín</option>
+                                <option value="suegraOpcion">Sansevieria</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success">
@@ -480,13 +480,21 @@
                 $('#listaDispositivos').empty();
                 if (data.success && data.dispositivos.length > 0) {
                     $.each(data.dispositivos, function(index, dispositivo) {
+                        const nombrePlanta = {
+                            'aloeOpcion': 'Aloe Vera',
+                            'coleoOpcion': 'Cóleo',
+                            'coronaOpcion': 'Corona de Cristo',
+                            'crotonOpcion': 'Crotón de Jardín',
+                            'suegraOpcion': 'Sansevieria'
+                        }[dispositivo.planta_seleccionada] || 'Nombre no encontrado';
+
                         $('#listaDispositivos').append(`
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body d-flex flex-column justify-content-between">
                                         <div class="mb-3">
                                             <h5 class="card-title">${dispositivo.nombre_planta}</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Planta: ${dispositivo.planta_seleccionada}</h6>
+                                            <h6 class="card-subtitle mb-2 text-muted">Planta: ${nombrePlanta}</h6>
                                             <p class="card-text small">ID: ${dispositivo.id_dispositivo}</p>
                                         </div>
                                         <div class="card-actions mt-2">
@@ -562,7 +570,7 @@
     }
 
     function eliminarDispositivo(id) {
-        if (confirm('¿Estás seguro de que quieres eliminar este dispositivo?')) {
+        if (confirm('¿Estás seguro de que quieres eliminar este dispositivo؟')) {
             $.ajax({
                 url: '/dispositivos/' + id,
                 method: 'DELETE',
@@ -582,9 +590,23 @@
             });
         }
     }
+
+    function generarEnlacePlanta(planta) {
+        switch (planta) {
+            case 'aloeOpcion':
+                return '/aloeOpcion';
+            case 'coleoOpcion':
+                return '/coleoOpcion';
+            case 'coronaOpcion':
+                return '/coronaOpcion';
+            case 'crotonOpcion':
+                return '/crotonOpcion';
+            case 'suegraOpcion':
+                return '/suegraOpcion';
+            default:
+                return '#'; // O una ruta por defecto si la planta no coincide
+        }
+    }
 </script>
 </body>
 </html>
-
-                            
-                            

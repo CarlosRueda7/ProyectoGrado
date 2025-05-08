@@ -21,4 +21,5 @@ class Dispositivo extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

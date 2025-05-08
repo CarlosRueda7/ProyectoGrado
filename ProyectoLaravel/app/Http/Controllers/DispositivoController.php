@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Dispositivo;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule; // ¡Importa la clase Rule!
 
 class DispositivoController extends Controller
 {
@@ -44,24 +45,24 @@ class DispositivoController extends Controller
             'planta_seleccionada' => 'required|string|max:255',
             'nombre_planta' => 'required|string|max:255',
         ];
-    
+
         $messages = [
             'id_dispositivo.unique' => 'Este ID de dispositivo ya está registrado, intenta con otro.',
         ];
-    
+
         $validator = Validator::make($request->all(), $rules, $messages);
-    
+
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Error de validación', 'errors' => $validator->errors()], 422);
         }
-    
+
         try {
             $dispositivo = Auth::user()->dispositivos()->create([
                 'id_dispositivo' => $request->id_dispositivo,
                 'planta_seleccionada' => $request->planta_seleccionada,
                 'nombre_planta' => $request->nombre_planta,
             ]);
-    
+
             if ($dispositivo) {
                 return response()->json(['success' => true, 'message' => 'Dispositivo guardado correctamente']);
             } else {
@@ -81,9 +82,33 @@ class DispositivoController extends Controller
      */
     public function show($id)
     {
-        $dispositivo = Auth::user()->dispositivos()->findOrFail($id);
-        return view('dispositivo.show', compact('dispositivo'));
+        $dispositivo = Dispositivo::findOrFail($id);
+        $planta = $dispositivo->planta_seleccionada;
+
+        $vista = '';
+        switch ($planta) {
+            case 'aloeOpcion':
+                $vista = 'aloeOpcion';
+                break;
+            case 'coleoOpcion':
+                $vista = 'coleoOpcion';
+                break;
+            case 'coronaOpcion':
+                $vista = 'coronaOpcion';
+                break;
+            case 'crotonOpcion':
+                $vista = 'crotonOpcion';
+                break;
+            case 'suegraOpcion':
+                $vista = 'suegraOpcion';
+                break;
+            default:
+                return redirect()->route('catalogo')->with('error', 'Vista de detalles no encontrada para esta planta.');
+        }
+
+        return view($vista, compact('dispositivo'));
     }
+
     public function destroy(Dispositivo $dispositivo)
     {
         if (Auth::user()->id !== $dispositivo->user_id) {
@@ -107,5 +132,34 @@ class DispositivoController extends Controller
     public function create()
     {
         return view('dispositivo.create');
+    }
+
+    public function mostrarDetalles(string $id): View
+    {
+        $dispositivo = Dispositivo::findOrFail($id);
+        $planta = $dispositivo->planta_seleccionada;
+
+        $vista = '';
+        switch ($planta) {
+            case 'aloeOpcion':
+                $vista = 'aloeOpcion';
+                break;
+            case 'coleoOpcion':
+                $vista = 'coleoOpcion';
+                break;
+            case 'coronaOpcion':
+                $vista = 'coronaOpcion';
+                break;
+            case 'crotonOpcion':
+                $vista = 'crotonOpcion';
+                break;
+            case 'suegraOpcion':
+                $vista = 'suegraOpcion';
+                break;
+            default:
+                abort(404, 'Vista de detalles no encontrada para esta planta.');
+        }
+
+        return view($vista, compact('dispositivo'));
     }
 }

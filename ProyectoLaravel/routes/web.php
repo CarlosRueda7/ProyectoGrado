@@ -69,6 +69,27 @@ Route::get('/perfil', function () {
     return view('perfil');
 })->name('perfil');
 
+// Estas rutas ahora son redundantes si la lógica de 'show' funciona correctamente
+// Route::get('/aloeOpcion', function () {
+//     return view('aloeOpcion');
+// })->name('aloeOpcion');
+//
+// Route::get('/coleoOpcion', function () {
+//     return view('coleoOpcion');
+// })->name('coleoOpcion');
+//
+// /*Route::get('/coronaOpcion', function () {
+//     return view('coronaOpcion');
+// })->name('coronaOpcion');*/
+//
+// Route::get('/crotonOpcion', function () {
+//     return view('crotonOpcion');
+// })->name('crotonOpcion');
+//
+// Route::get('/suegraOpcion', function () {
+//     return view('suegraOpcion');
+// })->name('suegraOpcion');
+
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -84,3 +105,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dispositivos/{id}', [DispositivoController::class, 'show'])->name('dispositivos.show');
     Route::delete('/dispositivos/{dispositivo}', [DispositivoController::class, 'destroy'])->middleware('auth');
 });
+
+// Esta ruta ahora es redundante si la lógica de 'show' funciona correctamente
+// Route::get('/dispositivos/{id}/detalles', [DispositivoController::class, 'mostrarDetalles'])->name('dispositivos.detalles');
