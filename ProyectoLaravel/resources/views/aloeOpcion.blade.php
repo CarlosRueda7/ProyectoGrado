@@ -176,7 +176,7 @@
                     <h1 id="nombrePlantaDetalle">{{ $dispositivo->nombre_planta }}</h1>
                     <p class="plantas-scientific-name">ID: {{ $dispositivo->id_dispositivo }}</p>
                     <p id="tipoPlantaDetalle">
-                        Tipo de Planta: Corona de Cristo
+                        Tipo de Planta: Aloe Vera
                     </p>
                 </div>
             </div>
