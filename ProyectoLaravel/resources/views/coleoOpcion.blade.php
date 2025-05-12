@@ -180,6 +180,7 @@
                     </p>
                 </div>
             </div>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1746657490357&to=1746659813556&timezone=browser&theme=light&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
             <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
         </div>
     </main>

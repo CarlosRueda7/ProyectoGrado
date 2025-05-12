@@ -179,6 +179,7 @@
                         Tipo de Planta: Aloe Vera
                     </p>
                 </div>
+                <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1746986826408&to=1747008426408&timezone=browser&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
             </div>
             <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
         </div>
