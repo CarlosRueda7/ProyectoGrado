@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\DispositivoController;
+use App\Http\Controllers\LecturaController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -104,6 +105,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dispositivos/create', [DispositivoController::class, 'create'])->name('dispositivos.create');
     Route::get('/dispositivos/{id}', [DispositivoController::class, 'show'])->name('dispositivos.show');
     Route::delete('/dispositivos/{dispositivo}', [DispositivoController::class, 'destroy'])->middleware('auth');
+    Route::get('/dispositivos/{id}/promedios', [LecturaController::class, 'promedios']);
 });
 
 // Esta ruta ahora es redundante si la lógica de 'show' funciona correctamente

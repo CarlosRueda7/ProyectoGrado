@@ -180,8 +180,17 @@
                     </p>
                 </div>
             </div>
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1746657490357&to=1746659813556&timezone=browser&theme=light&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-            <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+            <p id="ph-explicacion" style="text-align:center; font-weight:bold;"></p>
+
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=1&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+            <p id="humedad-explicacion" style="text-align:center; font-weight:bold;"></p>
+
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=4&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+            <p id="temperatura-explicacion" style="text-align:center; font-weight:bold;"></p>
+
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=2&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
+            <p id="luminosidad-explicacion" style="text-align:center; font-weight:bold;"></p>
         </div>
     </main>
     <footer>
@@ -285,3 +294,49 @@
 </body>
 
 </html>
+<script>
+    const id = "{{ $dispositivo->id }}";
+
+    function obtenerYActualizarPromedios() {
+        fetch(`/dispositivos/${id}/promedios/`)
+            .then(response => response.json())
+            .then(data => {
+                actualizarTexto("ph-explicacion", data.phsuelo, [
+                    { max: 5.5, mensaje: "El pH del suelo es muy ácido. Considera usar cal para corregirlo." },
+                    { max: 7.5, mensaje: "El pH del suelo está en un rango ideal para la mayoría de las plantas." },
+                    { max: Infinity, mensaje: "El pH es muy alcalino. Considera añadir materia orgánica." }
+                ]);
+
+                actualizarTexto("humedad-explicacion", data.humedad, [
+                    { max: 30, mensaje: "El suelo está demasiado seco. Es necesario regar pronto." },
+                    { max: 60, mensaje: "La humedad del suelo es adecuada para el crecimiento." },
+                    { max: Infinity, mensaje: "El suelo está muy húmedo. Evita el riego excesivo." }
+                ]);
+
+                actualizarTexto("temperatura-explicacion", data.temperatura, [
+                    { max: 15, mensaje: "La temperatura es baja. Puede afectar el desarrollo de la planta." },
+                    { max: 30, mensaje: "La temperatura es óptima para el cultivo." },
+                    { max: Infinity, mensaje: "La temperatura es alta. Protege la planta del calor excesivo." }
+                ]);
+
+                actualizarTexto("luminosidad-explicacion", data.luminosidad, [
+                    { max: 000, mensaje: "La luz es insuficiente. Busca un lugar más soleado." },
+                    { max: 100, mensaje: "La luminosidad es buena para la mayoría de las plantas." },
+                    { max: Infinity, mensaje: "Demasiada luz. Protege la planta del sol directo si es necesario." }
+                ]);
+            })
+            .catch(error => {
+                console.error("Error al obtener promedios:", error);
+            });
+    }
+
+    function actualizarTexto(idElemento, valor, mensajes) {
+        const parrafo = document.getElementById(idElemento);
+        const mensaje = mensajes.find(m => valor <= m.max)?.mensaje || "No se pudo determinar el estado.";
+        parrafo.textContent = `${mensaje} (Promedio actual: ${valor})`;
+    }
+
+    // Ejecutar al cargar y luego cada 60 segundos
+    obtenerYActualizarPromedios();
+    setInterval(obtenerYActualizarPromedios, 60000);
+</script>
