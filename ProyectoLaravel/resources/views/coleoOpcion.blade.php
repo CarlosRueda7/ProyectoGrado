@@ -98,6 +98,57 @@
         .mb-3 {
             margin-bottom: 2rem; /* Aumenta el margen inferior del botón regresar */
         }
+        .grafica-con-explicacion {
+            display: flex;
+            align-items: flex-start; /* Alinea los iframes con los textos arriba */
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .grafica-con-explicacion iframe {
+            width: 550px;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .grafica-con-explicacion > div {
+            flex: 1;
+            max-width: 300px;
+            min-height: 300px; /* Fijamos la altura para igualar al iframe */
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el texto verticalmente si es poco */
+        }
+
+
+        .info-container {
+            max-width: 300px;
+            text-align: left;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-promedio {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-mensaje small {
+            color: #555;
+            font-size: 1.5rem;
+        }
     </style>
 
 
@@ -180,17 +231,25 @@
                     </p>
                 </div>
             </div>
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=3&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-            <p id="ph-explicacion" style="text-align:center; font-weight:bold;"></p>
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="ph-explicacion"></div>
+            </div>
 
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=1&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-            <p id="humedad-explicacion" style="text-align:center; font-weight:bold;"></p>
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="humedad-explicacion"></div>
+            </div>
 
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=4&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-            <p id="temperatura-explicacion" style="text-align:center; font-weight:bold;"></p>
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=4&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="temperatura-explicacion"></div>
+            </div>
 
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&from=1747078430803&to=1747100030803&timezone=browser&showCategory=Panel%20options&theme=light&panelId=2&__feature.dashboardSceneSolo" width="450" height="200" frameborder="0"></iframe>
-            <p id="luminosidad-explicacion" style="text-align:center; font-weight:bold;"></p>
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="luminosidad-explicacion"></div>
+            </div>
         </div>
     </main>
     <footer>
@@ -253,90 +312,88 @@
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    {{-- <script>
-        $(document).ready(function () {
-            // Obtener el ID del dispositivo de la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const dispositivoId = urlParams.get('dispositivoId');
-
-            if (dispositivoId) {
-                // Realizar una llamada AJAX para obtener los detalles del dispositivo desde el servidor
-                $.ajax({
-                    url: '/api/dispositivos/' + dispositivoId, // Ajusta esta URL a la ruta de tu API
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        if (data.success && data.dispositivo) {
-                            // Actualizar el HTML con los datos del dispositivo
-                            $('#nombrePlantaTitulo').text(data.dispositivo.nombre_planta);
-                            $('#nombrePlantaDetalle').text(data.dispositivo.nombre_planta);
-                            $('#tipoPlantaDetalle').text(`Tipo de Planta: Corona de Cristo`); // Texto fijo
-                            // Aquí podrías también actualizar otros detalles de la planta si es necesario
-                        } else {
-                            // Manejar el caso en que no se encuentra el dispositivo
-                            alert('Dispositivo no encontrado');
-                            window.location.href = "{{ route('catalogo') }}"; // Redirigir a la página de catálogo
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error al obtener detalles del dispositivo:", error);
-                        alert('Error al obtener detalles del dispositivo');
-                        window.location.href = "{{ route('catalogo') }}"; // Redirigir a la página de catálogo
-                    }
-                });
-            } else {
-                // Si no hay ID de dispositivo en la URL, redirigir a la página de catálogo
-                alert('ID de dispositivo no especificado');
-                window.location.href = "{{ route('catalogo') }}";
-            }
-        });
-    </script> --}}
 </body>
 
 </html>
 <script>
-    const id = "{{ $dispositivo->id }}";
+  const id = "{{ $dispositivo->id }}";
 
-    function obtenerYActualizarPromedios() {
-        fetch(`/dispositivos/${id}/promedios/`)
-            .then(response => response.json())
-            .then(data => {
-                actualizarTexto("ph-explicacion", data.phsuelo, [
-                    { max: 5.5, mensaje: "El pH del suelo es muy ácido. Considera usar cal para corregirlo." },
-                    { max: 7.5, mensaje: "El pH del suelo está en un rango ideal para la mayoría de las plantas." },
-                    { max: Infinity, mensaje: "El pH es muy alcalino. Considera añadir materia orgánica." }
-                ]);
+  function obtenerYActualizarPromedios() {
+    fetch(`/dispositivos/${id}/promedios/`)
+      .then(response => response.json())
+      .then(data => {
+        actualizarTexto("ph-explicacion", "PH del suelo", data.phsuelo, [
+          { max: 5.5, icono: "🧪", mensaje: "muy ácido. Considera usar cal." },
+          { max: 7.5, icono: "🌱", mensaje: "en un rango ideal para la mayoría de las plantas." },
+          { max: Infinity, icono: "🧂", mensaje: "muy alcalino. Añadir materia orgánica puede ayudar." }
+        ], data.ultima_phsuelo);
 
-                actualizarTexto("humedad-explicacion", data.humedad, [
-                    { max: 30, mensaje: "El suelo está demasiado seco. Es necesario regar pronto." },
-                    { max: 60, mensaje: "La humedad del suelo es adecuada para el crecimiento." },
-                    { max: Infinity, mensaje: "El suelo está muy húmedo. Evita el riego excesivo." }
-                ]);
+        actualizarTexto("humedad-explicacion", "Humedad del suelo", data.humedad, [
+          { max: 2450, icono: "🌊", mensaje: "muy alta. Evita el riego excesivo." },
+          { max: 3270, icono: "🌿", mensaje: "adecuada para el crecimiento." },
+          { max: Infinity, icono: "💧", mensaje: "muy baja. Considera regar tu planta" }
+        ], data.ultima_humedad);
 
-                actualizarTexto("temperatura-explicacion", data.temperatura, [
-                    { max: 15, mensaje: "La temperatura es baja. Puede afectar el desarrollo de la planta." },
-                    { max: 30, mensaje: "La temperatura es óptima para el cultivo." },
-                    { max: Infinity, mensaje: "La temperatura es alta. Protege la planta del calor excesivo." }
-                ]);
+        actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [
+          { max: 20, icono: "❄️", mensaje: "baja. Puede afectar el desarrollo de la planta." },
+          { max: 30, icono: "☀️", mensaje: "es óptima para el cultivo." },
+          { max: Infinity, icono: "🔥", mensaje: "alta. Protege la planta del calor." }
+        ], data.ultima_temperatura);
 
-                actualizarTexto("luminosidad-explicacion", data.luminosidad, [
-                    { max: 000, mensaje: "La luz es insuficiente. Busca un lugar más soleado." },
-                    { max: 100, mensaje: "La luminosidad es buena para la mayoría de las plantas." },
-                    { max: Infinity, mensaje: "Demasiada luz. Protege la planta del sol directo si es necesario." }
-                ]);
-            })
-            .catch(error => {
-                console.error("Error al obtener promedios:", error);
-            });
+        actualizarLuminosidad("luminosidad-explicacion", "Luminosidad", data.ultima_luminosidad);
+      })
+      .catch(error => {
+        console.error("Error al obtener promedios:", error);
+      });
+  }
+
+  function actualizarTexto(idElemento, titulo, promedio, mensajes, ultimoValor) {
+    const contenedor = document.getElementById(idElemento);
+    const mensajeInfo = mensajes.find(m => promedio <= m.max);
+    const icono = mensajeInfo?.icono || "⚠️";
+    const mensaje = mensajeInfo?.mensaje || "No se pudo determinar el estado.";
+
+    contenedor.innerHTML = `
+      <div class="info-container">
+        <div class="info-promedio">${icono} ${promedio}</div>
+        <div class="info-mensaje">
+          <strong>${titulo}</strong><br>
+          ${mensaje}<br>
+          <small>Último valor: ${ultimoValor}</small>
+        </div>
+      </div>
+    `;
+  }
+
+  function actualizarLuminosidad(idElemento, titulo, ultimoValor) {
+    const contenedor = document.getElementById(idElemento);
+    let mensaje, icono;
+
+    if (ultimoValor == 0) {
+      icono = "🌑";
+      mensaje = "La planta no está recibiendo luz directa.";
+    } else if (ultimoValor == 100) {
+      icono = "☀️";
+      mensaje = "La planta tiene acceso a luz solar.";
+    } else {
+      icono = "🔆";
+      mensaje = "Nivel de luz intermedio.";
     }
 
-    function actualizarTexto(idElemento, valor, mensajes) {
-        const parrafo = document.getElementById(idElemento);
-        const mensaje = mensajes.find(m => valor <= m.max)?.mensaje || "No se pudo determinar el estado.";
-        parrafo.textContent = `${mensaje} (Promedio actual: ${valor})`;
-    }
+    contenedor.innerHTML = `
+      <div class="info-container">
+        <div class="info-promedio">${icono} ${ultimoValor}</div>
+        <div class="info-mensaje">
+          <strong>${titulo}</strong><br>
+          ${mensaje}<br>
+          <small>Último valor: ${ultimoValor}</small>
+        </div>
+      </div>
+    `;
+  }
 
-    // Ejecutar al cargar y luego cada 60 segundos
+  document.addEventListener("DOMContentLoaded", () => {
     obtenerYActualizarPromedios();
-    setInterval(obtenerYActualizarPromedios, 60000);
+    setInterval(obtenerYActualizarPromedios, 5000);
+  });
 </script>
