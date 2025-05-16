@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\DispositivoController;
 use App\Http\Controllers\LecturaController;
+use App\Http\Controllers\RiegoController; 
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -110,3 +111,5 @@ Route::middleware(['auth'])->group(function () {
 
 // Esta ruta ahora es redundante si la lógica de 'show' funciona correctamente
 // Route::get('/dispositivos/{id}/detalles', [DispositivoController::class, 'mostrarDetalles'])->name('dispositivos.detalles');
+
+Route::post('/dispositivos/regar', [RiegoController::class, 'recordRiego']);

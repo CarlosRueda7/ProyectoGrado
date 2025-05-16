@@ -26,27 +26,22 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <style>
-    /* Estilos generales (sin cambios) */
-    body {
-        color: #333;
-    }
-
+<style>
+    /* Estilos generales */
+    body { color: #333; }
     #about-us-page {
         background-color: #f7f7fd;
         padding: 50px;
         margin-top: 30px;
         font-family: "Open Sans", sans-serif;
     }
-
     #listaDispositivos {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Valor por defecto para pantallas pequeñas */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
     }
 
-    /* Estilos específicos para las tarjetas (sin cambios) */
+    /* Estilos de las tarjetas */
     #listaDispositivos .card {
         background-color: #fff;
         border: none;
@@ -56,14 +51,12 @@
         display: flex;
         flex-direction: column;
     }
-
     #listaDispositivos .card .card-body {
         padding: 30px;
         display: flex;
         flex-direction: column;
         height: 100%;
     }
-
     #listaDispositivos .card .card-title {
         font-family: "Poppins", sans-serif;
         font-size: 1.5rem;
@@ -71,66 +64,85 @@
         color: #16161a;
         margin-bottom: 1.25rem;
     }
-
     #listaDispositivos .card .card-subtitle {
         font-size: 1.1rem;
         color: #777;
         margin-bottom: 1.5rem;
     }
-
     #listaDispositivos .card .card-text {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #555;
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
+        margin-bottom: 0.5rem;
     }
+     #listaDispositivos .card .card-text.small {
+         font-size: 0.9rem;
+         color: #777;
+     }
 
+    /* Estilos para las acciones dentro de las tarjetas */
     #listaDispositivos .card .card-actions {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         margin-top: auto;
-        padding-top: 30px;
+        padding-top: 20px;
         border-top: 1px solid #eee;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        gap: 10px; /* Espacio entre botones en la tarjeta */
+    }
+    /* Estilos de diseño para los elementos dentro de card-actions (presumiblemente botones) */
+     #listaDispositivos .card .card-actions > * {
+         flex-grow: 1;
+         margin: 0 !important;
+         /* white-space: nowrap; - Ya incluido en el estilo unificado */
+         /* Los estilos visuales se aplican por el selector combinado de abajo */
+     }
+
+    /* --- ESTILO UNIFICADO PARA TODOS LOS BOTONES --- */
+    /* Aplicamos estas propiedades a todos los selectores de botones */
+    .common-btn,
+    #listaDispositivos .card .btn-primary,
+    #listaDispositivos .card .btn-danger,
+    #agregarDispositivoBtn,
+    #formularioAgregarDispositivo .btn-success,
+    #formularioAgregarDispositivo .btn-secondary,
+    .alert-button {
+        font-family: "Poppins", sans-serif; /* Familia de fuente unificada */
+        font-size: 1rem; /* Tamaño de letra unificado (tomado de #agregarDispositivoBtn) */
+        font-weight: 400; /* Peso de fuente unificado */
+        padding: 12px 24px; /* Padding unificado (tomado de #agregarDispositivoBtn/form buttons) */
+        border: 1px solid #F067FF; /* Borde unificado (color rosa original) */
+        color: #fff !important; /* Color de texto unificado (blanco) */
+        background-color: #F067FF; /* Color de fondo unificado (rosa original) */
+        border-radius: 6px; /* Borde radio unificado */
+        cursor: pointer; /* Cursor unificado */
+        transition: all 0.3s ease; /* Transición unificada */
+        text-transform: uppercase; /* Texto en mayúsculas unificado */
+        letter-spacing: 1px; /* Espaciado de letra unificado (tomado de common-btn) */
+        text-align: center; /* Alineación de texto unificada */
+        white-space: nowrap; /* Evita que el texto se rompa */
+        display: inline-block; /* Asegura comportamiento consistente, útil para <a> */
+        text-decoration: none; /* Elimina subrayado en links */
     }
 
-    /* Estilos comunes para todos los botones */
-    .common-btn {
-        font-family: "Poppins", sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        padding: 12px 24px;
-        border: 1px solid #F067FF;
-        color: #F067FF !important;
-        background: #fff;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 10px; /* Added margin */
-    }
-
-    .common-btn:hover {
-        background: #F067FF;
+    /* Estilo Hover Unificado para todos los botones */
+    .common-btn:hover,
+    #listaDispositivos .card .btn-primary:hover,
+    #listaDispositivos .card .btn-danger:hover,
+    #agregarDispositivoBtn:hover,
+    #formularioAgregarDispositivo .btn-success:hover,
+    #formularioAgregarDispositivo .btn-secondary:hover,
+    .alert-button:hover {
+        background: #d05ce6; /* Un color rosa ligeramente más oscuro para hover */
+        border-color: #d05ce6;
         color: #fff !important;
     }
+    /* --- FIN ESTILO UNIFICADO --- */
 
-    /* Estilos específicos para los botones de la tarjeta */
-    #listaDispositivos .card .btn {
-        /* Usamos la clase común */
-    }
 
-    #listaDispositivos .card .btn-danger {
-        border-color: #dc3545;
-        color: #dc3545 !important;
-        margin-left: 10px; /* Modified margin (or 0 if you prefer) */
-    }
-
-    #listaDispositivos .card .btn-danger:hover {
-        background-color: #dc3545;
-        color: #fff !important;
+    /* Estilos para el botón "Añadir Dispositivo" - Mantiene solo su margen específico */
+    #agregarDispositivoBtn {
+        margin-bottom: 30px; /* Mantiene solo este margen específico */
+        /* El resto de estilos visuales son sobrescritos por el selector unificado de arriba */
     }
 
     /* Estilos para el formulario */
@@ -141,149 +153,102 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
     }
-
     #formularioAgregarDispositivo h3 {
         font-family: "Poppins", sans-serif;
-        font-size: 1.3rem;
-        color: #16161a;
-        margin-bottom: 50px;
+        font-size: 1.3rem; color: #16161a; margin-bottom: 30px;
     }
-
     #formularioAgregarDispositivo .form-label {
-        font-weight: 600;
-        color: #333;
+        font-weight: 600; color: #333; margin-bottom: 5px;
     }
-
     #formularioAgregarDispositivo .form-control,
-    #formularioAgregarDispositivo .form-select {
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 12px;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: left;
+    #formularioAgregarDispositivo .form-select { /* Esta regla se mantiene intacta */
+        border: 1px solid #ccc; border-radius: 6px; margin-bottom: 20px;
+        font-size: 1rem; width: 100%; box-sizing: border-box; display: block;
     }
+     #formularioAgregarDispositivo .mb-3 {
+         margin-bottom: 1rem !important;
+     }
 
+    /* Estilos para el contenedor de acciones del formulario (los botones Guardar y Cancelar) */
     #formularioAgregarDispositivo .form-actions {
         display: flex;
-        justify-content: flex-start;
-        margin-top: 40px;
-    }
-
-    #formularioAgregarDispositivo .btn-success {
-        /* Usamos la clase común */
-        background-color: #28a745;
-        color: #fff;
-        border: none;
-        padding: 15px 30px;
-        margin-right: 10px;
-        margin-top: 50px;
-        font-size: 1rem;
-        margin: 10px; /* Added margin */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* Alinea a la izquierda por defecto */
+        gap: 15px; /* Espacio entre botones */
         margin-top: 30px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    #formularioAgregarDispositivo .btn-success:hover {
-        background-color: #218838;
+    /* Estilos de diseño para los elementos dentro de form-actions (presumiblemente botones) */
+    #formularioAgregarDispositivo .form-actions .btn {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: auto;
+        margin: 0 !important;
+        /* white-space: nowrap; - Ya incluido en el estilo unificado */
+        /* Los estilos visuales se aplican por el selector combinado de arriba */
     }
 
-    #formularioAgregarDispositivo .btn-secondary {
-        /* Usamos la clase común */
-        background-color: #6c757d;
-        color: #fff;
-        border: none;
-        padding: 15px 30px;
-        margin-left: 10px;
-        margin-top: 50px;
-        font-size: 1rem;
-        margin: 10px; /* Added margin */
-        margin-top: 30px;
-    }
 
-    #formularioAgregarDispositivo .btn-secondary:hover {
-        background-color: #545b62;
-    }
-
-    /* Media query para pantallas medianas y grandes (tablets y escritorios) */
+    /* Media query para pantallas medianas y grandes */
     @media (min-width: 768px) {
-        #listaDispositivos {
-            grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Fuerza 2 columnas */
+        #listaDispositivos { grid-template-columns: repeat(2, minmax(300px, 1fr)); }
+         #listaDispositivos .card .card-actions { flex-direction: row; align-items: center; }
+         #listaDispositivos .card .card-actions > * { margin: 0 !important; }
+
+
+        /* En pantallas más grandes */
+        #formularioAgregarDispositivo .form-actions .btn {
+             flex-grow: 0;
+             flex-shrink: 0;
+             width: auto;
         }
+         /* Asegúrate de que sigan alineados a la derecha en pantallas grandes */
+         #formularioAgregarDispositivo .form-actions {
+              justify-content: flex-end; /* Alinea a la derecha en sm+ */
+         }
     }
-       /* Estilos para el modal de alerta personalizado (CENTRADOO - FORZADO) */
-       #customAlert {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Cubre toda la ventana */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-    justify-content: center !important; /* Centra horizontalmente - ¡IMPORTANTE! */
-    align-items: center !important; /* Centra verticalmente - ¡IMPORTANTE! */
-    z-index: 1050 !important; /* Asegura que esté por encima de otros elementos - ¡IMPORTANTE! */
-}
 
+    /* Media query para 3 columnas en pantallas grandes */
+    @media (min-width: 992px) {
+        #listaDispositivos { grid-template-columns: repeat(3, minmax(300px, 1fr)); }
+    }
+
+    /* Estilos para el modal de alerta personalizado */
+    #customAlert {
+        display: none; /* Se maneja con JS para mostrar */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center;
+        align-items: center; z-index: 1050;
+    }
     .alert-content {
-        background-color: #fefefe;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 400px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        /* No necesitamos position: center; aquí para el centrado flexbox */
+        background-color: #fefefe; padding: 20px; border: 1px solid #888;
+        width: 90%; max-width: 400px; border-radius: 5px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        text-align: left;
     }
-
     .alert-header {
-        padding: 10px 0;
-        margin-bottom: 15px;
-        border-bottom: 1px solid #eee;
+        padding: 10px 0; margin-bottom: 15px; border-bottom: 1px solid #eee;
     }
-
     .alert-header h4 {
-        margin: 0;
-        color: #d9534f; /* Color rojo para indicar error */
-        font-weight: bold;
+        margin: 0; color: #d9534f; font-weight: bold; font-size: 1.2rem;
     }
-
-    .alert-body {
-        padding: 15px 0;
-    }
-
-    .alert-body p {
-        margin: 0;
-        font-size: 1rem;
-        color: #333;
-    }
-
+    .alert-body { padding: 15px 0; }
+    .alert-body p { margin: 0; font-size: 1rem; color: #333; }
     .alert-footer {
-        padding: 15px 0;
-        border-top: 1px solid #eee;
-        text-align: right;
+        padding: 15px 0 0 0; border-top: 1px solid #eee; text-align: right;
     }
+    /* El botón del modal de alerta ya está incluido en el selector combinado único arriba */
 
-    .alert-button {
-        background-color: #5cb85c; /* Color verde para aceptar */
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
 
-    .alert-button:hover {
-        background-color: #4cae4c;
-    }
+    /* Estilo para el indicador de carga en los botones */
+     .regar-planta-btn .fa-spinner,
+      #formularioAgregarDispositivo button[type="submit"] .fa-spinner
+      {
+         margin-right: 5px;
+      }
 </style>
-
 </head>
 <body>
     <div id="preloader-active">
@@ -299,7 +264,7 @@
     <header>
         <div class="header-area header-transparent">
             <div class="main-header ">
-                <div class="header-bottom  header-sticky">
+                <div class="header-bottom header-sticky">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
@@ -354,8 +319,8 @@
                 <div id="formularioAgregarDispositivo" style="display: none;">
                     <h3>Añadir Nuevo Dispositivo</h3>
                     <form id="formNuevoDispositivo">
-                        <div class="mb-3">
-                            <label for="id_dispositivo" class="form-label">ID del Dispositivo:</label>
+                        @csrf <div class="mb-3">
+                            <label for="id_dispositivo" class="form-label">ID del Dispositivo Hardware:</label>
                             <input type="text" class="form-control" id="id_dispositivo" name="id_dispositivo" required>
                         </div>
                         <div class="mb-3">
@@ -373,12 +338,14 @@
                                 <option value="suegraOpcion">Sansevieria</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-save"></i> Guardar Dispositivo
-                        </button>
-                        <button type="button" class="btn btn-secondary" onclick="ocultarFormularioAgregar()">
-                            <i class="fas fa-times"></i> Cancelar
-                        </button>
+                        <div class="form-actions">
+                             <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Guardar Dispositivo
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="ocultarFormularioAgregar()">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
+                        </div>
                     </form>
                     <div id="mensajeResultado" class="mt-3"></div>
                 </div>
@@ -404,7 +371,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -439,55 +406,87 @@
     <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
     <div id="customAlert" class="custom-alert">
-    <div class="alert-content">
-        <div class="alert-header">
-            <h4>¡Error!</h4>
-        </div>
-        <div class="alert-body">
-            <p id="alertMessage"></p>
-        </div>
-        <div class="alert-footer">
-            <button id="alertOkButton" class="alert-button">Aceptar</button>
+        <div class="alert-content">
+            <div class="alert-header">
+                <h4>¡Error!</h4>
+            </div>
+            <div class="alert-body">
+                <p id="alertMessage"></p>
+            </div>
+            <div class="alert-footer">
+                <button id="alertOkButton" class="alert-button">Aceptar</button>
+            </div>
         </div>
     </div>
-</div>
-<script>
+
+ <script>
+    // Configuración global de AJAX para incluir el token CSRF
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
+    // Código que se ejecuta cuando el documento está listo
     $(document).ready(function() {
+        // Cargar los dispositivos al iniciar la página
         cargarDispositivos();
 
+        // Manejar el envío del formulario para añadir nuevo dispositivo
         $('#formNuevoDispositivo').submit(function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Evitar el envío normal del formulario
             agregarNuevoDispositivo();
         });
 
-        // Asegúrate de que el modal esté oculto al inicio
+        // --- ESCUCHADOR DE EVENTOS PARA EL BOTÓN REGAR ---
+        // Usar delegación de eventos en el contenedor de las tarjetas (#listaDispositivos)
+        // Esto es eficiente porque solo se añade un escuchador al padre, no a cada botón.
+        $('#listaDispositivos').on('click', '.regar-planta-btn', function() {
+            // Obtener el ID primario del dispositivo del atributo data-device-id del botón clickeado
+            const dispositivoDbId = $(this).data('device-id');
+            // Llamar a la función para registrar el riego
+            regarPlanta(dispositivoDbId);
+        });
+        // --- FIN ESCUCHADOR DE EVENTOS ---
+
+
+        // Asegurarse de que el modal de alerta personalizado esté oculto al inicio
         $('#customAlert').hide();
+
+        // Escuchador de eventos para el botón "Aceptar" del modal de alerta personalizado
+        $('#alertOkButton').click(function() {
+            $('#customAlert').fadeOut(); // Ocultar el modal con efecto fade
+        });
     });
 
+    /**
+     * Carga la lista de dispositivos desde el backend y los muestra en la página.
+     */
     function cargarDispositivos() {
+        console.log("Cargando dispositivos...");
         $.ajax({
-            url: '/dispositivos/data',
+            url: '/dispositivos/data', // URL de la ruta que devuelve los datos JSON de los dispositivos
             method: 'GET',
             dataType: 'json',
             success: function(data) {
-                $('#listaDispositivos').empty();
-                if (data.success && data.dispositivos.length > 0) {
+                $('#listaDispositivos').empty(); // Limpiar la lista actual de dispositivos
+                console.log("Datos de dispositivos recibidos:", data);
+
+                if (data.success && data.dispositivos && data.dispositivos.length > 0) {
+                    // Iterar sobre cada dispositivo recibido
                     $.each(data.dispositivos, function(index, dispositivo) {
+                        // Mapear el valor almacenado de 'planta_seleccionada' a un nombre legible
                         const nombrePlanta = {
                             'aloeOpcion': 'Aloe Vera',
                             'coleoOpcion': 'Cóleo',
                             'coronaOpcion': 'Corona de Cristo',
                             'crotonOpcion': 'Crotón de Jardín',
                             'suegraOpcion': 'Sansevieria'
-                        }[dispositivo.planta_seleccionada] || 'Nombre no encontrado';
+                        }[dispositivo.planta_seleccionada] || 'Nombre no encontrado'; // Nombre por defecto si no coincide
 
+                        // Construir el HTML para la tarjeta del dispositivo
                         $('#listaDispositivos').append(`
                             <div class="col">
                                 <div class="card h-100">
@@ -495,11 +494,19 @@
                                         <div class="mb-3">
                                             <h5 class="card-title">${dispositivo.nombre_planta}</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">Planta: ${nombrePlanta}</h6>
-                                            <p class="card-text small">ID: ${dispositivo.id_dispositivo}</p>
+                                            <p class="card-text small">ID Dispositivo Hardware: ${dispositivo.id_dispositivo}</p>
+                                            <p class="card-text small mt-2">
+                                                Último riego: <span id="last-watered-${dispositivo.id}">
+                                                    ${dispositivo.last_watered_at ? new Date(dispositivo.last_watered_at).toLocaleString() : 'Nunca'}
+                                                </span>
+                                            </p>
                                         </div>
-                                        <div class="card-actions mt-2">
-                                            <a href="/dispositivos/${dispositivo.id}" class="btn btn-sm btn-primary me-2"><i class="fas fa-eye"></i> Ver Detalles</a>
-                                            <button class="btn btn-danger btn-sm" onclick="eliminarDispositivo(${dispositivo.id})"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                                        <div class="card-actions mt-2 d-flex flex-column flex-sm-row align-items-stretch">
+                                             <button class="btn common-btn flex-grow-1 mb-2 mb-sm-0 me-sm-2 regar-planta-btn" data-device-id="${dispositivo.id}">
+                                                <i class="fas fa-tint"></i> Regar Planta
+                                            </button>
+                                             <a href="/dispositivos/${dispositivo.id}" class="btn btn-sm btn-primary flex-grow-1 mb-2 mb-sm-0 me-sm-2"><i class="fas fa-eye"></i> Ver Detalles</a>
+                                             <button class="btn btn-danger btn-sm flex-grow-1" onclick="eliminarDispositivo(${dispositivo.id})"><i class="fas fa-trash-alt"></i> Eliminar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -507,90 +514,241 @@
                         `);
                     });
                 } else {
+                    // Mostrar mensaje si no hay dispositivos
                     $('#listaDispositivos').append('<div class="col"><div class="alert alert-info">No hay dispositivos registrados.</div></div>');
                 }
             },
             error: function(xhr, status, error) {
-                console.error("Error al cargar dispositivos:", error);
-                $('#listaDispositivos').append('<div class="col"><div class="alert alert-danger">Error de conexión con el servidor.</div></div>');
-                // No mostrar la alerta aquí para evitar que aparezca al inicio por error de carga
+                console.error("Error al cargar dispositivos:", status, error);
+                // Mostrar mensaje de error si la carga falla
+                $('#listaDispositivos').empty().append('<div class="col"><div class="alert alert-danger">Error al cargar los dispositivos.</div></div>');
+                 // No mostrar alerta personalizada global aquí, solo en acciones de usuario fallidas.
             }
         });
     }
 
+    /**
+     * Muestra el formulario para añadir un nuevo dispositivo.
+     */
     function mostrarFormularioAgregar() {
         $('#formularioAgregarDispositivo').show();
+        $('#agregarDispositivoBtn').hide(); // Ocultar el botón "Añadir Dispositivo" al mostrar el formulario
+         // Limpiar cualquier mensaje previo
+        $('#mensajeResultado').empty().hide();
     }
 
+    /**
+     * Oculta el formulario para añadir un nuevo dispositivo y limpia los campos.
+     */
     function ocultarFormularioAgregar() {
         $('#formularioAgregarDispositivo').hide();
-        $('#mensajeResultado').empty();
-        $('#formNuevoDispositivo')[0].reset();
+        $('#agregarDispositivoBtn').show(); // Mostrar el botón "Añadir Dispositivo"
+        $('#mensajeResultado').empty().hide(); // Limpiar y ocultar mensajes de resultado
+        $('#formNuevoDispositivo')[0].reset(); // Resetear el formulario
     }
 
-    $(document).ready(function() {
-        $('#alertOkButton').click(function() {
-            $('#customAlert').fadeOut();
-        });
-    });
-
+    /**
+     * Muestra la alerta personalizada con un mensaje dado.
+     * @param {string} mensaje - El mensaje a mostrar en la alerta.
+     */
     function mostrarAlertaPersonalizada(mensaje) {
-        console.log("Mensaje a mostrar en la alerta:", mensaje);
-        $('#alertMessage').text(mensaje);
-        $('#customAlert').fadeIn();
+        console.log("Mostrando alerta:", mensaje);
+        $('#alertMessage').text(mensaje); // Establece el texto del mensaje en la alerta
+        $('#customAlert').fadeIn(); // Muestra el modal de alerta con efecto fade
     }
 
+    /**
+     * Envía la solicitud para añadir un nuevo dispositivo al backend.
+     */
     function agregarNuevoDispositivo() {
+        console.log("Intentando añadir nuevo dispositivo...");
+        // Limpiar mensajes previos antes de la nueva solicitud
+        $('#mensajeResultado').empty().hide();
+        const submitButton = $('#formularioAgregarDispositivo button[type="submit"]');
+        const originalButtonContent = submitButton.html();
+
+        // Deshabilitar botón y mostrar spinner
+        submitButton.attr('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Guardando...');
+
+
         $.ajax({
-            url: '/dispositivos',
+            url: '/dispositivos', // URL de la ruta para guardar dispositivos (POST)
             method: 'POST',
             dataType: 'json',
-            data: $('#formNuevoDispositivo').serialize(),
+            data: $('#formNuevoDispositivo').serialize(), // Serializa los datos del formulario
             success: function(data) {
+                console.log("Respuesta al añadir dispositivo:", data);
                 if (data.success) {
-                    $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message);
-                    console.log('Cargando dispositivos después de guardar');
-                    cargarDispositivos();
-                    $('#formNuevoDispositivo')[0].reset();
-                    setTimeout(ocultarFormularioAgregar, 2000);
+                    // Si tiene éxito, mostrar mensaje de éxito y recargar la lista
+                    $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message).fadeIn();
+                    console.log('Dispositivo añadido con éxito. Recargando lista.');
+                    cargarDispositivos(); // Recargar la lista para mostrar el nuevo dispositivo
+                    $('#formNuevoDispositivo')[0].reset(); // Limpiar el formulario
+                    // Ocultar el formulario y el mensaje después de un breve retraso
+                    setTimeout(function() {
+                         $('#mensajeResultado').fadeOut();
+                         ocultarFormularioAgregar();
+                    }, 2000); // Esperar 2 segundos
+
                 } else {
-                    if (data.errors && data.errors.id_dispositivo) {
-                        mostrarAlertaPersonalizada(data.errors.id_dispositivo[0]);
-                    } else {
-                        $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message);
-                    }
-                    console.error("Error al agregar dispositivo:", data);
+                    // Si el backend devuelve success: false, pero no es un error de validación (422)
+                    console.error("Error desde el backend al añadir dispositivo:", data.message);
+                    let errorMessage = data.message || 'Error desconocido al añadir dispositivo.';
+                     // Mostrar el error usando la alerta personalizada
+                     mostrarAlertaPersonalizada(errorMessage);
+                    // $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(errorMessage).fadeIn(); // Opcional: mostrar también en el mensajeResultado
                 }
             },
             error: function(xhr, status, error) {
-                console.error("DISPOSITIVO YA REGISTRADO", error);
-                mostrarAlertaPersonalizada('DISPOSITIVO YA REGISTRADO.');
+                console.error("Error AJAX al añadir dispositivo:", status, error);
+                let errorMessage = 'Error de comunicación con el servidor al añadir dispositivo.';
+
+                if (xhr.status === 422 && xhr.responseJSON && xhr.responseJSON.errors) {
+                    // Manejar errores de validación específicos devueltos por Laravel (status 422)
+                    errorMessage = 'Errores de validación:<br>'; // <br> para saltos de línea en HTML
+                    // Iterar sobre los errores devueltos por el backend
+                    for (const field in xhr.responseJSON.errors) {
+                         if (xhr.responseJSON.errors.hasOwnProperty(field)) {
+                             // Agregar cada mensaje de error al mensaje final
+                             errorMessage += `- ${xhr.responseJSON.errors[field].join(', ')}<br>`;
+                         }
+                    }
+                     // Eliminar el último <br> si hay errores
+                     if (errorMessage.endsWith('<br>')) {
+                         errorMessage = errorMessage.slice(0, -4);
+                     }
+
+                 } else if (xhr.responseJSON && xhr.responseJSON.message) {
+                     // Manejar otros errores del backend que devuelven un mensaje JSON
+                     errorMessage = xhr.responseJSON.message;
+                 } else if (error) {
+                      // Manejar errores de red o del servidor sin respuesta JSON
+                      errorMessage = 'Error del servidor o de red: ' + error;
+                 }
+                // Mostrar el error usando la alerta personalizada
+                mostrarAlertaPersonalizada(errorMessage);
+                 // $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(errorMessage).fadeIn(); // Opcional: mostrar también en el mensajeResultado
+            },
+            complete: function() {
+                // Este código se ejecuta SIEMPRE al finalizar la solicitud (éxito o error)
+                // Rehabilitar el botón y restaurar su contenido original
+                submitButton.attr('disabled', false).html(originalButtonContent);
             }
         });
     }
 
+    /**
+     * Envía la solicitud para eliminar un dispositivo al backend.
+     * @param {number} id - El ID primario del dispositivo a eliminar.
+     */
     function eliminarDispositivo(id) {
-        if (confirm('¿Estás seguro de que quieres eliminar este dispositivo؟')) {
+        // Confirmar con el usuario antes de eliminar
+        if (confirm('¿Estás seguro de que quieres eliminar este dispositivo? Esta acción no se puede deshacer.')) {
+            console.log("Intentando eliminar dispositivo con ID:", id);
+            // Limpiar mensajes previos antes de la nueva solicitud
+            $('#mensajeResultado').empty().hide();
+
             $.ajax({
-                url: '/dispositivos/' + id,
-                method: 'DELETE',
+                url: '/dispositivos/' + id, // URL de la ruta para eliminar un dispositivo específico
+                method: 'DELETE', // Método DELETE
                 dataType: 'json',
                 success: function(data) {
+                    console.log("Respuesta al eliminar dispositivo:", data);
                     if (data.success) {
-                        $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message);
-                        cargarDispositivos();
+                        // Si tiene éxito, mostrar mensaje y recargar la lista
+                        $('#mensajeResultado').removeClass('alert-danger').addClass('alert-success').text(data.message).fadeIn();
+                        console.log('Dispositivo eliminado con éxito. Recargando lista.');
+                        cargarDispositivos(); // Recargar la lista para que desaparezca el dispositivo eliminado
+                         // Ocultar el mensaje después de un breve retraso
+                         setTimeout(function() {
+                            $('#mensajeResultado').fadeOut();
+                         }, 2000);
                     } else {
-                        $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message);
+                        // Si hay error (success: false), mostrar mensaje de error
+                        console.error("Error al eliminar dispositivo:", data.message);
+                        // Mostrar el error usando la alerta personalizada
+                         mostrarAlertaPersonalizada(data.message || 'Error desconocido al eliminar el dispositivo.');
+                       // $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(data.message).fadeIn(); // Opcional
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error("Error al eliminar dispositivo:", error);
-                    $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text('Error al comunicar con el servidor.');
+                    console.error("Error AJAX al eliminar dispositivo:", status, error);
+                     let errorMessage = 'Error de comunicación con el servidor al eliminar dispositivo.';
+                     if (xhr.responseJSON && xhr.responseJSON.message) {
+                         errorMessage = xhr.responseJSON.message;
+                     } else if (error) {
+                         errorMessage = 'Error del servidor o de red: ' + error;
+                     }
+                    // Mostrar el error usando la alerta personalizada
+                    mostrarAlertaPersonalizada(errorMessage);
+                    // $('#mensajeResultado').removeClass('alert-success').addClass('alert-danger').text(errorMessage).fadeIn(); // Opcional
                 }
             });
         }
     }
 
+    /**
+     * Registra un evento de riego para un dispositivo específico vía AJAX.
+     * Utiliza el ID primario del modelo Dispositivo (su campo 'id').
+     * @param {number} dispositivoDbId - El ID primario del modelo Dispositivo.
+     */
+    function regarPlanta(dispositivoDbId) {
+        console.log("Intentando registrar riego para el dispositivo (ID DB):", dispositivoDbId);
+
+        // Seleccionar el botón específico de riego usando el atributo data-device-id
+        const regarButton = $(`button[data-device-id="${dispositivoDbId}"].regar-planta-btn`);
+        const originalButtonContent = regarButton.html(); // Guardar contenido original (incl. icono)
+        // Deshabilitar el botón y mostrar indicador de carga
+        regarButton.attr('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Regando...');
+
+        $.ajax({
+            url: '/dispositivos/regar', // URL de la ruta para registrar riego (POST)
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                // Enviamos el ID primario del dispositivo al backend
+                dispositivo_id: dispositivoDbId
+            },
+            success: function(data) {
+                console.log('Respuesta al registrar riego:', data);
+                if (data.success) {
+                    console.log('Riego registrado con éxito. Fecha:', data.fecha);
+                    // Encontrar el span que muestra la última fecha de riego para este dispositivo
+                    const lastWateredMsgElement = $(`#last-watered-${dispositivoDbId}`);
+                    // Parsear el string ISO de fecha recibido del backend y formatearlo para mostrar
+                    const wateredTime = new Date(data.fecha); // Usa data.fecha que devuelve el backend
+                    lastWateredMsgElement.text(wateredTime.toLocaleString()); // Actualizar el texto con la hora formateada
+
+                    // Opcional: Puedes añadir un efecto visual temporal para confirmar el riego
+                    // lastWateredMsgElement.css('color', 'green').fadeOut(400).fadeIn(400).css('color', '');
+
+                } else {
+                     console.error("Error desde el backend al registrar el riego:", data.message);
+                     // Mostrar el error usando la alerta personalizada
+                     mostrarAlertaPersonalizada(data.message || 'Error al registrar el riego.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error AJAX al registrar el riego:", status, error);
+                let errorMessage = 'Error de comunicación con el servidor al registrar el riego.';
+                 // Intentar obtener un mensaje de error más detallado de la respuesta
+                 if (xhr.responseJSON && xhr.responseJSON.message) {
+                     errorMessage = xhr.responseJSON.message;
+                 } else if (error) {
+                      errorMessage = 'Error de red o servidor: ' + error;
+                 }
+                mostrarAlertaPersonalizada(errorMessage);
+            },
+            complete: function() {
+                // Este código se ejecuta SIEMPRE al finalizar la solicitud (éxito o error)
+                // Rehabilitar el botón y restaurar su contenido original
+                regarButton.attr('disabled', false).html(originalButtonContent);
+            }
+        });
+    }
+
+
+    // Función existente (parece que no se usa en la carga actual, pero la dejo)
     function generarEnlacePlanta(planta) {
         switch (planta) {
             case 'aloeOpcion':
