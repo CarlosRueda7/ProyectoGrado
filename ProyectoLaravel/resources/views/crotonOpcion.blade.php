@@ -98,6 +98,57 @@
         .mb-3 {
             margin-bottom: 2rem; /* Aumenta el margen inferior del botón regresar */
         }
+        .grafica-con-explicacion {
+            display: flex;
+            align-items: flex-start; /* Alinea los iframes con los textos arriba */
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .grafica-con-explicacion iframe {
+            width: 550px;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .grafica-con-explicacion > div {
+            flex: 1;
+            max-width: 300px;
+            min-height: 300px; /* Fijamos la altura para igualar al iframe */
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el texto verticalmente si es poco */
+        }
+
+
+        .info-container {
+            max-width: 300px;
+            text-align: left;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-promedio {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-mensaje small {
+            color: #555;
+            font-size: 1.5rem;
+        }
     </style>
 
 
@@ -180,6 +231,26 @@
                     </p>
                 </div>
             </div>
+            
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="ph-explicacion"></div>
+            </div>
+
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="humedad-explicacion"></div>
+            </div>
+
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=4&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="temperatura-explicacion"></div>
+            </div>
+
+            <div class="grafica-con-explicacion">
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <div id="luminosidad-explicacion"></div>
+            </div>
             <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
         </div>
     </main>
@@ -242,45 +313,6 @@
 
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-
-    {{-- <script>
-        $(document).ready(function () {
-            // Obtener el ID del dispositivo de la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const dispositivoId = urlParams.get('dispositivoId');
-
-            if (dispositivoId) {
-                // Realizar una llamada AJAX para obtener los detalles del dispositivo desde el servidor
-                $.ajax({
-                    url: '/api/dispositivos/' + dispositivoId, // Ajusta esta URL a la ruta de tu API
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        if (data.success && data.dispositivo) {
-                            // Actualizar el HTML con los datos del dispositivo
-                            $('#nombrePlantaTitulo').text(data.dispositivo.nombre_planta);
-                            $('#nombrePlantaDetalle').text(data.dispositivo.nombre_planta);
-                            $('#tipoPlantaDetalle').text(`Tipo de Planta: Corona de Cristo`); // Texto fijo
-                            // Aquí podrías también actualizar otros detalles de la planta si es necesario
-                        } else {
-                            // Manejar el caso en que no se encuentra el dispositivo
-                            alert('Dispositivo no encontrado');
-                            window.location.href = "{{ route('catalogo') }}"; // Redirigir a la página de catálogo
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Error al obtener detalles del dispositivo:", error);
-                        alert('Error al obtener detalles del dispositivo');
-                        window.location.href = "{{ route('catalogo') }}"; // Redirigir a la página de catálogo
-                    }
-                });
-            } else {
-                // Si no hay ID de dispositivo en la URL, redirigir a la página de catálogo
-                alert('ID de dispositivo no especificado');
-                window.location.href = "{{ route('catalogo') }}";
-            }
-        });
-    </script> --}}
 </body>
 
 </html>

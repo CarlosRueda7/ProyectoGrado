@@ -232,24 +232,25 @@
                 </div>
             </div>
             <div class="grafica-con-explicacion">
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
             <div id="ph-explicacion"></div>
             </div>
 
             <div class="grafica-con-explicacion">
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
             <div id="humedad-explicacion"></div>
             </div>
 
             <div class="grafica-con-explicacion">
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=4&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=4&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
             <div id="temperatura-explicacion"></div>
             </div>
 
             <div class="grafica-con-explicacion">
-            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
+            <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
             <div id="luminosidad-explicacion"></div>
             </div>
+            <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
         </div>
     </main>
     <footer>
