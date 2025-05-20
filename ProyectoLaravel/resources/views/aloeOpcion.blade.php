@@ -26,130 +26,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <style>
-        /* Estilos específicos para la página de detalles de la planta */
-        .plantas-container {
-            background-color: #f7f7fd;
-            padding: 40px; /* Aumenta el padding para más espacio interior */
-            margin-top: 40px; /* Aumenta el margen superior */
-            font-family: "Open Sans", sans-serif;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
-            max-width: 900px; /* Aumenta el ancho máximo del cuadro */
-            margin-left: auto;
-            margin-right: auto;
-            display: flex; /* Añadimos flex para ordenar los elementos */
-            flex-direction: column; /* Colocamos los elementos en columna */
-            align-items: center; /* Centramos los elementos horizontalmente (opcional) */
-        }
-
-        .plantas-plant-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px; /* Aumenta el margen inferior */
-            border-bottom: 1px solid #eee;
-            padding-bottom: 30px; /* Aumenta el padding inferior */
-            width: 100%; /* Aseguramos que el header ocupe todo el ancho */
-        }
-
-        .plantas-plant-image {
-            width: 180px; /* Aumenta el ancho de la imagen */
-            height: 180px; /* Aumenta la altura de la imagen */
-            border-radius: 10px;
-            object-fit: cover;
-            margin-right: 30px; /* Aumenta el margen derecho */
-        }
-
-        .plantas-plant-title h1 {
-            font-family: "Poppins", sans-serif;
-            font-size: 2.5rem; /* Aumenta el tamaño del título */
-            color: #16161a;
-            margin-bottom: 8px; /* Aumenta el margen inferior */
-        }
-
-        .plantas-plant-title p {
-            font-size: 1.2rem; /* Aumenta el tamaño del texto */
-            color: #777;
-            margin-bottom: 8px; /* Aumenta el margen inferior */
-        }
-
-        .boxed-btn {
-            font-family: "Poppins", sans-serif;
-            font-size: 1.1rem; /* Aumenta el tamaño del botón */
-            font-weight: 400;
-            padding: 15px 30px; /* Aumenta el padding del botón */
-            border: 1px solid #F067FF;
-            color: #F067FF !important;
-            background: #fff;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px; /* Espacio superior (opcional) */
-            width: fit-content; /* Ajusta el ancho del botón al contenido */
-        }
-
-        .boxed-btn:hover {
-            background: #F067FF;
-            color: #fff !important;
-        }
-
-        .mb-3 {
-            margin-bottom: 2rem; /* Aumenta el margen inferior del botón regresar */
-        }
-                .grafica-con-explicacion {
-            display: flex;
-            align-items: flex-start; /* Alinea los iframes con los textos arriba */
-            justify-content: center;
-            margin-bottom: 40px;
-            gap: 30px;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .grafica-con-explicacion iframe {
-            width: 550px;
-            height: 300px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
-
-        .grafica-con-explicacion > div {
-            flex: 1;
-            max-width: 300px;
-            min-height: 300px; /* Fijamos la altura para igualar al iframe */
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centra el texto verticalmente si es poco */
-        }
-
-
-        .info-container {
-            max-width: 300px;
-            text-align: left;
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .info-promedio {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .info-mensaje small {
-            color: #555;
-            font-size: 1.5rem;
-        }
-    </style>
 
 
 </head>
@@ -250,8 +126,9 @@
                 <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
                 <div id="luminosidad-explicacion"></div>
                 </div>
+                <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
             </div>
-            <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
+            
         </div>
     </main>
     <footer>

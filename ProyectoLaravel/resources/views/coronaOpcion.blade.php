@@ -26,133 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <style>
-        /* Estilos específicos para la página de detalles de la planta */
-        .plantas-container {
-            background-color: #f7f7fd;
-            padding: 40px; /* Aumenta el padding para más espacio interior */
-            margin-top: 40px; /* Aumenta el margen superior */
-            font-family: "Open Sans", sans-serif;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
-            max-width: 900px; /* Aumenta el ancho máximo del cuadro */
-            margin-left: auto;
-            margin-right: auto;
-            display: flex; /* Añadimos flex para ordenar los elementos */
-            flex-direction: column; /* Colocamos los elementos en columna */
-            align-items: center; /* Centramos los elementos horizontalmente (opcional) */
-        }
-
-        .plantas-plant-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px; /* Aumenta el margen inferior */
-            border-bottom: 1px solid #eee;
-            padding-bottom: 30px; /* Aumenta el padding inferior */
-            width: 100%; /* Aseguramos que el header ocupe todo el ancho */
-        }
-
-        .plantas-plant-image {
-            width: 180px; /* Aumenta el ancho de la imagen */
-            height: 180px; /* Aumenta la altura de la imagen */
-            border-radius: 10px;
-            object-fit: cover;
-            margin-right: 30px; /* Aumenta el margen derecho */
-        }
-
-        .plantas-plant-title h1 {
-            font-family: "Poppins", sans-serif;
-            font-size: 2.5rem; /* Aumenta el tamaño del título */
-            color: #16161a;
-            margin-bottom: 8px; /* Aumenta el margen inferior */
-        }
-
-        .plantas-plant-title p {
-            font-size: 1.2rem; /* Aumenta el tamaño del texto */
-            color: #777;
-            margin-bottom: 8px; /* Aumenta el margen inferior */
-        }
-
-        .boxed-btn {
-            font-family: "Poppins", sans-serif;
-            font-size: 1.1rem; /* Aumenta el tamaño del botón */
-            font-weight: 400;
-            padding: 15px 30px; /* Aumenta el padding del botón */
-            border: 1px solid #F067FF;
-            color: #F067FF !important;
-            background: #fff;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px; /* Espacio superior (opcional) */
-            width: fit-content; /* Ajusta el ancho del botón al contenido */
-        }
-
-        .boxed-btn:hover {
-            background: #F067FF;
-            color: #fff !important;
-        }
-
-        .mb-3 {
-            margin-bottom: 2rem; /* Aumenta el margen inferior del botón regresar */
-        }
-            .grafica-con-explicacion {
-            display: flex;
-            align-items: flex-start; /* Alinea los iframes con los textos arriba */
-            justify-content: center;
-            margin-bottom: 40px;
-            gap: 30px;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .grafica-con-explicacion iframe {
-            width: 550px;
-            height: 300px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
-
-        .grafica-con-explicacion > div {
-            flex: 1;
-            max-width: 300px;
-            min-height: 300px; /* Fijamos la altura para igualar al iframe */
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centra el texto verticalmente si es poco */
-        }
-
-
-        .info-container {
-            max-width: 300px;
-            text-align: left;
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .info-promedio {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .info-mensaje small {
-            color: #555;
-            font-size: 1.5rem;
-        }
-    </style>
-
-
-</head>
+    </head>
 
 <body>
     <div id="preloader-active">
@@ -168,7 +42,7 @@
     <header>
         <div class="header-area header-transparent">
             <div class="main-header ">
-                <div class="header-bottom  header-sticky">
+                <div class="header-bottom header-sticky">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
@@ -185,7 +59,8 @@
                                                 <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
-                                                <li><a href="{{ route('dispositivos.index') }}">Mis Dispositivos</a></li>
+                                                <li><a href="{{ route('dispositivos.index') }}">Mis Dispositivos</a>
+                                                </li>
                                                 <li class="button-header margin-left "><a href="{{ route('perfil') }}"
                                                         class="btn">Mi Perfil</a></li>
                                             </ul>
@@ -230,25 +105,25 @@
                         Tipo de Planta: Corona de Cristo
                     </p>
                 </div>
-                <div class="grafica-con-explicacion">
+            </div>
+            <div class="grafica-con-explicacion">
                 <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=3&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
                 <div id="ph-explicacion"></div>
-                </div>
+            </div>
 
-                <div class="grafica-con-explicacion">
+            <div class="grafica-con-explicacion">
                 <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=1&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
                 <div id="humedad-explicacion"></div>
-                </div>
+            </div>
 
-                <div class="grafica-con-explicacion">
+            <div class="grafica-con-explicacion">
                 <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=4&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
                 <div id="temperatura-explicacion"></div>
-                </div>
+            </div>
 
-                <div class="grafica-con-explicacion">
+            <div class="grafica-con-explicacion">
                 <iframe src="http://172.191.63.99:3000/d-solo/bekhr65jgftogf/visualizacion?orgId=1&var-dispositivo={{ $dispositivo->id_dispositivo }}&timezone=browser&refresh=5s&theme=light&panelId=2&__feature.dashboardSceneSolo" width="550" height="300" frameborder="0"></iframe>
                 <div id="luminosidad-explicacion"></div>
-                </div>
             </div>
             <button class="boxed-btn mb-3" onclick="location.href='{{ route('dispositivos.index') }}'">Regresar</button>
         </div>
@@ -316,84 +191,108 @@
 
 </html>
 <script>
-  const id = "{{ $dispositivo->id }}";
+    const id = "{{ $dispositivo->id }}";
 
-  function obtenerYActualizarPromedios() {
-    fetch(`/dispositivos/${id}/promedios/`)
-      .then(response => response.json())
-      .then(data => {
-        actualizarTexto("ph-explicacion", "PH del suelo", data.phsuelo, [
-          { max: 5.5, icono: "🧪", mensaje: "muy ácido. Considera usar cal." },
-          { max: 7.5, icono: "🌱", mensaje: "en un rango ideal para la mayoría de las plantas." },
-          { max: Infinity, icono: "🧂", mensaje: "muy alcalino. Añadir materia orgánica puede ayudar." }
-        ], data.ultima_phsuelo);
+    function obtenerYActualizarPromedios() {
+        fetch(`/dispositivos/${id}/promedios/`)
+            .then(response => response.json())
+            .then(data => {
+                actualizarTexto("ph-explicacion", "PH del suelo", data.phsuelo, [{
+                    max: 5.5,
+                    icono: "🧪",
+                    mensaje: "muy ácido. Considera usar cal."
+                }, {
+                    max: 7.5,
+                    icono: "🌱",
+                    mensaje: "en un rango ideal para la mayoría de las plantas."
+                }, {
+                    max: Infinity,
+                    icono: "🧂",
+                    mensaje: "muy alcalino. Añadir materia orgánica puede ayudar."
+                }], data.ultima_phsuelo);
 
-        actualizarTexto("humedad-explicacion", "Humedad del suelo", data.humedad, [
-          { max: 2450, icono: "🌊", mensaje: "muy alta. Evita el riego excesivo." },
-          { max: 3270, icono: "🌿", mensaje: "adecuada para el crecimiento." },
-          { max: Infinity, icono: "💧", mensaje: "muy baja. Considera regar tu planta" }
-        ], data.ultima_humedad);
+                actualizarTexto("humedad-explicacion", "Humedad del suelo", data.humedad, [{
+                    max: 2450,
+                    icono: "🌊",
+                    mensaje: "muy alta. Evita el riego excesivo."
+                }, {
+                    max: 3270,
+                    icono: "🌿",
+                    mensaje: "adecuada para el crecimiento."
+                }, {
+                    max: Infinity,
+                    icono: "💧",
+                    mensaje: "muy baja. Considera regar tu planta"
+                }], data.ultima_humedad);
 
-        actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [
-          { max: 20, icono: "❄️", mensaje: "baja. Puede afectar el desarrollo de la planta." },
-          { max: 38, icono: "☀️", mensaje: "es óptima para el cultivo." },
-          { max: Infinity, icono: "🔥", mensaje: "alta. Protege la planta del calor." }
-        ], data.ultima_temperatura);
+                actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [{
+                    max: 20,
+                    icono: "❄️",
+                    mensaje: "baja. Puede afectar el desarrollo de la planta."
+                }, {
+                    max: 30,
+                    icono: "☀️",
+                    mensaje: "es óptima para el cultivo."
+                }, {
+                    max: Infinity,
+                    icono: "🔥",
+                    mensaje: "alta. Protege la planta del calor."
+                }], data.ultima_temperatura);
 
-        actualizarLuminosidad("luminosidad-explicacion", "Luminosidad", data.ultima_luminosidad);
-      })
-      .catch(error => {
-        console.error("Error al obtener promedios:", error);
-      });
-  }
-
-  function actualizarTexto(idElemento, titulo, promedio, mensajes, ultimoValor) {
-    const contenedor = document.getElementById(idElemento);
-    const mensajeInfo = mensajes.find(m => promedio <= m.max);
-    const icono = mensajeInfo?.icono || "⚠️";
-    const mensaje = mensajeInfo?.mensaje || "No se pudo determinar el estado.";
-
-    contenedor.innerHTML = `
-      <div class="info-container">
-        <div class="info-promedio">${icono} ${promedio}</div>
-        <div class="info-mensaje">
-          <strong>${titulo}</strong><br>
-          ${mensaje}<br>
-          <small>Último valor: ${ultimoValor}</small>
-        </div>
-      </div>
-    `;
-  }
-
-  function actualizarLuminosidad(idElemento, titulo, ultimoValor) {
-    const contenedor = document.getElementById(idElemento);
-    let mensaje, icono;
-
-    if (ultimoValor == 0) {
-      icono = "🌑";
-      mensaje = "La planta no está recibiendo luz directa.";
-    } else if (ultimoValor == 100) {
-      icono = "☀️";
-      mensaje = "La planta tiene acceso a luz solar.";
-    } else {
-      icono = "🔆";
-      mensaje = "Nivel de luz intermedio.";
+                actualizarLuminosidad("luminosidad-explicacion", "Luminosidad", data.ultima_luminosidad);
+            })
+            .catch(error => {
+                console.error("Error al obtener promedios:", error);
+            });
     }
 
-    contenedor.innerHTML = `
-      <div class="info-container">
-        <div class="info-promedio">${icono} ${ultimoValor}</div>
-        <div class="info-mensaje">
-          <strong>${titulo}</strong><br>
-          ${mensaje}<br>
-          <small>Último valor: ${ultimoValor}</small>
-        </div>
-      </div>
-    `;
-  }
+    function actualizarTexto(idElemento, titulo, promedio, mensajes, ultimoValor) {
+        const contenedor = document.getElementById(idElemento);
+        const mensajeInfo = mensajes.find(m => promedio <= m.max);
+        const icono = mensajeInfo?.icono || "⚠️";
+        const mensaje = mensajeInfo?.mensaje || "No se pudo determinar el estado.";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    obtenerYActualizarPromedios();
-    setInterval(obtenerYActualizarPromedios, 5000);
-  });
+        contenedor.innerHTML = `
+            <div class="info-container">
+              <div class="info-promedio">${icono} ${promedio}</div>
+              <div class="info-mensaje">
+                <strong>${titulo}</strong><br>
+                ${mensaje}<br>
+                <small>Último valor: ${ultimoValor}</small>
+              </div>
+            </div>
+        `;
+    }
+
+    function actualizarLuminosidad(idElemento, titulo, ultimoValor) {
+        const contenedor = document.getElementById(idElemento);
+        let mensaje, icono;
+
+        if (ultimoValor == 0) {
+            icono = "🌑";
+            mensaje = "La planta no está recibiendo luz directa.";
+        } else if (ultimoValor == 100) {
+            icono = "☀️";
+            mensaje = "La planta tiene acceso a luz solar.";
+        } else {
+            icono = "🔆";
+            mensaje = "Nivel de luz intermedio.";
+        }
+
+        contenedor.innerHTML = `
+            <div class="info-container">
+              <div class="info-promedio">${icono} ${ultimoValor}</div>
+              <div class="info-mensaje">
+                <strong>${titulo}</strong><br>
+                ${mensaje}<br>
+                <small>Último valor: ${ultimoValor}</small>
+              </div>
+            </div>
+        `;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        obtenerYActualizarPromedios();
+        setInterval(obtenerYActualizarPromedios, 5000);
+    });
 </script>
