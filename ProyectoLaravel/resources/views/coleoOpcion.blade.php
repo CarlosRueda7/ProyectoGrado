@@ -330,14 +330,14 @@
         ], data.ultima_phsuelo);
 
         actualizarTexto("humedad-explicacion", "Humedad del suelo", data.humedad, [
-          { max: 2450, icono: "🌊", mensaje: "muy alta. Evita el riego excesivo." },
-          { max: 3270, icono: "🌿", mensaje: "adecuada para el crecimiento." },
+          { max: 3270, icono: "🌊", mensaje: "muy alta. Evita el riego excesivo." },
+          { max: 1630, icono: "🌿", mensaje: "adecuada para el crecimiento." },
           { max: Infinity, icono: "💧", mensaje: "muy baja. Considera regar tu planta" }
         ], data.ultima_humedad);
 
         actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [
           { max: 20, icono: "❄️", mensaje: "baja. Puede afectar el desarrollo de la planta." },
-          { max: 30, icono: "☀️", mensaje: "es óptima para el cultivo." },
+          { max: 38, icono: "☀️", mensaje: "es óptima para el cultivo." },
           { max: Infinity, icono: "🔥", mensaje: "alta. Protege la planta del calor." }
         ], data.ultima_temperatura);
 

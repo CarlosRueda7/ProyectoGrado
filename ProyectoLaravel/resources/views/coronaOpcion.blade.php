@@ -336,7 +336,7 @@
 
         actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [
           { max: 20, icono: "❄️", mensaje: "baja. Puede afectar el desarrollo de la planta." },
-          { max: 30, icono: "☀️", mensaje: "es óptima para el cultivo." },
+          { max: 38, icono: "☀️", mensaje: "es óptima para el cultivo." },
           { max: Infinity, icono: "🔥", mensaje: "alta. Protege la planta del calor." }
         ], data.ultima_temperatura);
 
