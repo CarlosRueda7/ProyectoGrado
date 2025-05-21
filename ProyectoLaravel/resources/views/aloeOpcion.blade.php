@@ -190,89 +190,13 @@
 
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        window.dispositivoId = "{{ $dispositivo->id }}";
+        window.nombrePlanta = "{{ strtolower($dispositivo->nombre_planta) }}";
+    </script>
+    <script src="{{ asset('assets/js/monitoreo.js') }}"></script>
+
 
 </body>
 
 </html>
-<script>
-  const id = "{{ $dispositivo->id }}";
-
-  function obtenerYActualizarPromedios() {
-    fetch(`/dispositivos/${id}/promedios/`)
-      .then(response => response.json())
-      .then(data => {
-        actualizarTexto("ph-explicacion", "PH del suelo", data.phsuelo, [
-          { max: 5.5, icono: "🧪", mensaje: "muy ácido. Considera usar cal." },
-          { max: 7.5, icono: "🌱", mensaje: "en un rango ideal para la mayoría de las plantas." },
-          { max: Infinity, icono: "🧂", mensaje: "muy alcalino. Añadir materia orgánica puede ayudar." }
-        ], data.ultima_phsuelo);
-
-        actualizarTexto("humedad-explicacion", "Humedad del suelo", data.humedad, [
-          { max: 2450, icono: "🌊", mensaje: "muy alta. Evita el riego excesivo." },
-          { max: 3270, icono: "🌿", mensaje: "adecuada para el crecimiento." },
-          { max: Infinity, icono: "💧", mensaje: "muy baja. Considera regar tu planta" }
-        ], data.ultima_humedad);
-
-        actualizarTexto("temperatura-explicacion", "Temperatura", data.temperatura, [
-          { max: 20, icono: "❄️", mensaje: "baja. Puede afectar el desarrollo de la planta." },
-          { max: 38, icono: "☀️", mensaje: "es óptima para el cultivo." },
-          { max: Infinity, icono: "🔥", mensaje: "alta. Protege la planta del calor." }
-        ], data.ultima_temperatura);
-
-        actualizarLuminosidad("luminosidad-explicacion", "Luminosidad", data.ultima_luminosidad);
-      })
-      .catch(error => {
-        console.error("Error al obtener promedios:", error);
-      });
-  }
-
-  function actualizarTexto(idElemento, titulo, promedio, mensajes, ultimoValor) {
-    const contenedor = document.getElementById(idElemento);
-    const mensajeInfo = mensajes.find(m => promedio <= m.max);
-    const icono = mensajeInfo?.icono || "⚠️";
-    const mensaje = mensajeInfo?.mensaje || "No se pudo determinar el estado.";
-
-    contenedor.innerHTML = `
-      <div class="info-container">
-        <div class="info-promedio">${icono} ${promedio}</div>
-        <div class="info-mensaje">
-          <strong>${titulo}</strong><br>
-          ${mensaje}<br>
-          <small>Último valor: ${ultimoValor}</small>
-        </div>
-      </div>
-    `;
-  }
-
-  function actualizarLuminosidad(idElemento, titulo, ultimoValor) {
-    const contenedor = document.getElementById(idElemento);
-    let mensaje, icono;
-
-    if (ultimoValor == 0) {
-      icono = "🌑";
-      mensaje = "La planta no está recibiendo luz directa.";
-    } else if (ultimoValor == 100) {
-      icono = "☀️";
-      mensaje = "La planta tiene acceso a luz solar.";
-    } else {
-      icono = "🔆";
-      mensaje = "Nivel de luz intermedio.";
-    }
-
-    contenedor.innerHTML = `
-      <div class="info-container">
-        <div class="info-promedio">${icono} ${ultimoValor}</div>
-        <div class="info-mensaje">
-          <strong>${titulo}</strong><br>
-          ${mensaje}<br>
-          <small>Último valor: ${ultimoValor}</small>
-        </div>
-      </div>
-    `;
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    obtenerYActualizarPromedios();
-    setInterval(obtenerYActualizarPromedios, 5000);
-  });
-</script>
