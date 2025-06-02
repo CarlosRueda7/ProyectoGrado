@@ -80,7 +80,7 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-xl-8 col-lg-9 col-md-12 ">
                             <div class="hero__caption hero__caption3 text-center">
-                                <h1 data-animation="fadeInLeft" data-delay=".6s ">CATÁLOGO DE PLANTAS</h1>
+                                <h1 data-animation="fadeInLeft" data-delay=".6s ">CATÁLOGO DE SENSORES</h1>
                             </div>
                         </div>
                     </div>
@@ -95,45 +95,30 @@
     <div class="container section-padding">
         <div class="plants-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-                <img src="{{ asset('assets/img/flores/suegra.jpg') }}" alt="Sansevieria" class="plant-image">
+                <img src="{{ asset('assets/img/sensores/dth11.jpeg') }}" alt="Sansevieria" class="plant-image">
                 <div class="plant-info p-6 text-center">
-                    <h2 class="plant-name theme-color text-2xl mb-4">Sansevieria</h2>
-                    <button class="info-button" onclick="location.href='{{ route('suegra') }}'">Más información</button>
+                    <h2 class="plant-name theme-color text-2xl mb-4">Sensor Temperatura y Humedad</h2>
+                    <button class="info-button" onclick="location.href='{{ route('dth') }}'">Más información</button>
                 </div>
             </div>
 
             <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-                <img src="{{ asset('assets/img/flores/corona.jpg') }}" alt="Corona de Cristo" class="plant-image">
+                <img src="{{ asset('assets/img/sensores/yl-100.jpg') }}" alt="Corona de Cristo" class="plant-image">
                 <div class="plant-info p-6 text-center">
-                    <h2 class="plant-name theme-color text-2xl mb-4">Corona de Cristo</h2>
-                    <button class="info-button" onclick="location.href='{{ route('corona') }}'">Más información</button>
+                    <h2 class="plant-name theme-color text-2xl mb-4">Sensor Humedad del Suelo</h2>
+                    <button class="info-button" onclick="location.href='{{ route('yl-100') }}'">Más información</button>
                 </div>
             </div>
 
 
             <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-                <img src="{{ asset('assets/img/flores/aloe.jpeg') }}" alt="Aloe Vera" class="plant-image">
+                <img src="{{ asset('assets/img/sensores/ldr.jpeg') }}" alt="Aloe Vera" class="plant-image">
                 <div class="plant-info p-6 text-center">
-                    <h2 class="plant-name theme-color text-2xl mb-4">Aloe Vera</h2>
-                    <button class="info-button" onclick="location.href='{{ route('aloe') }}'">Más información</button>
+                    <h2 class="plant-name theme-color text-2xl mb-4">Sensor de Luz</h2>
+                    <button class="info-button" onclick="location.href='{{ route('ldr') }}'">Más información</button>
                 </div>
             </div>
 
-            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-                <img src="{{ asset('assets/img/flores/coleo.jpg') }}" alt="Cóleo" class="plant-image">
-                <div class="plant-info p-6 text-center">
-                    <h2 class="plant-name theme-color text-2xl mb-4">Cóleo</h2>
-                    <button class="info-button" onclick="location.href='{{ route('coleo') }}'">Más información</button>
-                </div>
-            </div>
-
-            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
-                <img src="{{ asset('assets/img/flores/croton.jpeg') }}" alt="Crotón de Jardín" class="plant-image">
-                <div class="plant-info p-6 text-center">
-                    <h2 class="plant-name theme-color text-2xl mb-4">Crotón de Jardín</h2>
-                    <button class="info-button" onclick="location.href='{{ route('croton') }}'">Más información</button>
-                </div>
-            </div>
         </div>
     </div>
 

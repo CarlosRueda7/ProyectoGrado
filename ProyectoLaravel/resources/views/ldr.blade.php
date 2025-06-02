@@ -3,13 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Hosting | Teamplate</title>
-    <meta name="description" content="">
+    <title>Información del Sensor LDR</title>
+    <meta name="description" content="Detalles y datos del sensor de luz (LDR).">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-    <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -26,11 +25,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-
 </head>
-
 <body>
-    <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -41,15 +37,12 @@
             </div>
         </div>
     </div>
-    <!-- Preloader Start -->
     <header>
-        <!-- Header Start -->
         <div class="header-area header-transparent">
             <div class="main-header ">
                 <div class="header-bottom  header-sticky">
                     <div class="container-fluid">
                         <div class="row align-items-center">
-                            <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
                                     <a href="{{ route('index') }}"><img src="assets/img/logo/logo.png" alt=""></a>
@@ -57,22 +50,19 @@
                             </div>
                             <div class="col-xl-10 col-lg-10">
                                 <div class="menu-wrapper d-flex align-items-center justify-content-end">
-                                    <!-- Main-menu -->
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
-                                            <ul id="navigation">                                                                                          
+                                            <ul id="navigation">
                                                 <li><a href="{{ route('index') }}">Home</a></li>
                                                 <li><a href="{{ route('catalogo') }}">Catálogo</a></li>
                                                 <li><a href="{{ route('nosotros') }}">Nosotros</a></li>
                                                 <li><a href="{{ route('dispositivos.index') }}">Mis Dispositivos</a></li>
-                                                <!-- Button -->
                                                 <li class="button-header margin-left "><a href="{{ route('perfil') }}" class="btn">Mi Perfil</a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                 </div>
-                            </div> 
-                            <!-- Mobile Menu -->
+                            </div>
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
@@ -81,18 +71,15 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-    </header>
+        </header>
     <main>
-<!-- Slider Area Start-->
 <div class="slider-area slider-bg ">
-    <!-- Single Slider -->
     <div class="single-slider d-flex align-items-center slider-height3">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-8 col-lg-9 col-md-12 ">
                     <div class="hero__caption hero__caption3 text-center">
-                        <h1 data-animation="fadeInLeft" data-delay=".6s ">CÓLEO</h1>
+                        <h1 data-animation="fadeInLeft" data-delay=".6s ">Sensor LDR</h1>
                     </div>
                 </div>
             </div>
@@ -102,43 +89,44 @@
 
 <div class="plantas-container">
     <div class="plantas-plant-header">
-        <img src="{{ asset('assets/img/flores/coleo.jpg') }}" alt="Cóleo" class="plantas-plant-image">
+        <img src="{{ asset('assets/img/sensores/ldr.jpeg') }}" alt="Sansevieria" class="plantas-plant-image">
         <div class="plantas-plant-title">
-            <h1>Cóleo</h1>
-            <p class="plantas-scientific-name">Plectranthus scutellarioides</p>
-            <p>El Cóleo es una planta ornamental conocida por sus hojas vibrantes y coloridas que van desde tonos verdes hasta fucsias y rojos intensos.</p>
+            <h1>Sensor LDR</h1>
+            <p class="plantas-scientific-name">Fotorresistencia / Resistor Dependiente de la Luz</p>
+            <p>El LDR (Light Dependent Resistor) es un componente electrónico cuya resistencia varía en función de la intensidad de la luz que incide sobre él. A más luz, menor resistencia; a menos luz, mayor resistencia.</p>
         </div>
     </div>
 
     <div class="plantas-plant-info">
         <div class="plantas-info-section">
-            <h2>Características</h2>
+            <h2>Características Principales</h2>
             <ul>
-                <li><strong>Altura:</strong> 60 cm a 1 m</li>
-                <li><strong>Diámetro de copa:</strong> 8 mm a 1.3 cm</li>
-                <li><strong>Color de las hojas:</strong> Verde, blanco, rojo, dorado, naranja, morado, marrón</li>
-                <li><strong>Color de las flores:</strong> Azul, blanco, morado, verde, lavanda</li>
-                <li><strong>Temperatura ideal:</strong> 20-38°C</li>
+                <li><strong>Tipo:</strong> Fotorresistor, basado en material semiconductor como sulfuro de cadmio (CdS).</li>
+                <li><strong>Funcionamiento:</strong> Su resistencia disminuye cuando la intensidad de la luz aumenta y aumenta cuando la luz disminuye.</li>
+                <li><strong>Rango de Resistencia:</strong> Puede variar de unos pocos cientos de ohmios (con luz brillante) a varios megaohmios (en la oscuridad total).</li>
+                <li><strong>Sensibilidad:</strong> Muy sensible a la luz visible.</li>
+                <li><strong>Tiempo de Respuesta:</strong> Relativamente lento, puede tardar decenas o cientos de milisegundos en cambiar su resistencia.</li>
+                <li><strong>Polaridad:</strong> No tiene polaridad específica, se puede conectar en cualquier dirección.</li>
             </ul>
         </div>
 
         <div class="plantas-info-section">
-            <h2>Cuidados</h2>
+            <h2>Uso y Conexión</h2>
             <ul>
-                <li><strong>Riego:</strong> Mantener el suelo constantemente húmedo, pero no encharcado</li>
-                <li><strong>Luz:</strong> Sol parcial</li>
-                <li><strong>Fertilización:</strong> Cada dos semanas con fertilizante alto en nitrógeno durante primavera y verano</li>
-                <li><strong>Cambio de maceta:</strong> Replantar cada 2-3 años, preferiblemente en primavera</li>
+                <li><strong>Conexión Básica:</strong> Generalmente se usa en un divisor de voltaje junto con una resistencia fija para convertir el cambio de resistencia en un cambio de voltaje que puede ser leído por un microcontrolador.</li>
+                <li><strong>Pines:</strong> Dos pines, no polarizados.</li>
+                <li><strong>Microcontroladores:</strong> Se conecta a un pin analógico de un microcontrolador (Arduino, ESP32) para leer la variación de voltaje.</li>
+                <li><strong>Aplicaciones Comunes:</strong> Encendido/apagado automático de luces (farolas), alarmas de luz, contadores, sistemas de detección de oscuridad, control de brillo de pantallas.</li>
             </ul>
         </div>
 
         <div class="plantas-info-section">
-            <h2>Información adicional</h2>
-            <p>El Cóleo es ideal para decoración interior y exterior gracias a sus hojas llamativas. Sin embargo, es tóxico para las mascotas.</p>
+            <h2>Consideraciones Adicionales</h2>
+            <p>Los LDR son componentes económicos y fáciles de usar, pero su respuesta no es lineal y pueden tener variaciones entre unidades. Además, contienen cadmio, un material tóxico, lo que ha llevado a buscar alternativas en algunas aplicaciones.</p>
         </div>
     </div>
 
-    <button class="boxed-btn" onclick="location.href='{{ route('index') }}'">Regresar</button>
+    <button class="boxed-btn" onclick="location.href='{{ route('catalogo') }}'">Regresar</button>
 
 </div>
 </main>
@@ -149,11 +137,9 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                             <div class="single-footer-caption mb-50">
-                                <!-- logo -->
                                 <div class="footer-logo mb-25">
                                     <a href="{{ route('index') }}"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
-                                <!-- imagen debajo del logo -->
                                 <div class="footer-img">
                                     <img src="assets/img/footer/footer-img.png" alt="">
                                 </div>
@@ -165,57 +151,43 @@
         </div>
     </footer>
 
-      <!-- Scroll Up -->
       <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
 
-    <!-- JS here -->
-
     <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
     <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
     <script src="./assets/js/jquery.slicknav.min.js"></script>
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
     <script src="./assets/js/owl.carousel.min.js"></script>
     <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
     <script src="./assets/js/wow.min.js"></script>
     <script src="./assets/js/animated.headline.js"></script>
     <script src="./assets/js/jquery.magnific-popup.js"></script>
 
-    <!-- Date Picker -->
     <script src="./assets/js/gijgo.min.js"></script>
 
-    <!-- Video bg -->
     <script src="./assets/js/jquery.vide.js"></script>
 
-    <!-- Nice-select, sticky -->
     <script src="./assets/js/jquery.nice-select.min.js"></script>
     <script src="./assets/js/jquery.sticky.js"></script>
-    <!-- Progress -->
     <script src="./assets/js/jquery.barfiller.js"></script>
-    
-    <!-- counter , waypoint,Hover Direction -->
+
     <script src="./assets/js/jquery.counterup.min.js"></script>
     <script src="./assets/js/waypoints.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
     <script src="./assets/js/hover-direction-snake.min.js"></script>
 
-    <!-- contact js -->
     <script src="./assets/js/contact.js"></script>
     <script src="./assets/js/jquery.form.js"></script>
     <script src="./assets/js/jquery.validate.min.js"></script>
     <script src="./assets/js/mail-script.js"></script>
     <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
+
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
-    
+
 </body>
 </html>

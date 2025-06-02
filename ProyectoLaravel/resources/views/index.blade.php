@@ -98,27 +98,14 @@
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="hero__img d-none d-lg-block f-right">
-                            <img src="assets/img/hero/hero_right.png" alt="Sistema IoT para plantas" data-animation="fadeInRight" data-delay="1s">
+                            <img src="assets/img/hero/planta2.png" alt="Sistema IoT para plantas" data-animation="fadeInRight" data-delay="1s" class="reduced-image">
                         </div>
                     </div>
                 </div>
             </div>
         </div>      
         <!-- Single Slider -->
-        <div class="single-slider d-flex align-items-center slider-height ">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-9 ">
-                        <div class="hero__caption">
-                            <span data-animation="fadeInLeft" data-delay=".3s">Cuidado inteligente y eficiente</span>
-                            <h1 data-animation="fadeInLeft" data-delay=".6s">Tecnología avanzada para tus plantas</h1>
-                            <p data-animation="fadeInLeft" data-delay=".8s">Con sensores de última generación y análisis en tiempo real, nuestro sistema IoT te ayuda a optimizar el riego, la luz y la temperatura de tus plantas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>      
-    </div>
+
     <!-- Slider Shape -->
     <div class="slider-shape d-none d-lg-block">
         <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
@@ -146,105 +133,57 @@
         <div class="row justify-content-center">
             <div class="col-xl-12">
                 <div class="section-tittle text-center mb-105">
-                    <h2>Características de los Sensores</h2>
+                    <h2>CATÁLOGO DE PLANTAS</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-cat" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <div class="cat-icon">
-                        <img src="{{ asset('assets/img/sensores/dth11.jpeg') }}" alt="Sensor DHT11" style="width: 120px; height: auto;">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="#">Sensor DHT11</a></h5>
-                        <p>Mide la temperatura (0-50°C con ±2°C de precisión) y la humedad relativa (20-90% RH con ±5% de precisión) del aire.</p>
-                    </div>
+            <div class="container section-padding">
+        <div class="plants-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
+                <img src="{{ asset('assets/img/flores/suegra.jpg') }}" alt="Sansevieria" class="plant-image">
+                <div class="plant-info p-6 text-center">
+                    <h2 class="plant-name theme-color text-2xl mb-4">Sansevieria</h2>
+                    <button class="info-button" onclick="location.href='{{ route('suegra') }}'">Más información</button>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-cat" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <div class="cat-icon">
-                        <img src="{{ asset('assets/img/sensores/yl-100.jpg') }}" alt="Sensor YL-100" style="width: 120px; height: auto;">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="#">Sensor YL-100</a></h5>
-                        <p>Mide la humedad del suelo mediante dos electrodos que evalúan la conductividad eléctrica entre ellos.</p>
-                    </div>
+
+            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
+                <img src="{{ asset('assets/img/flores/corona.jpg') }}" alt="Corona de Cristo" class="plant-image">
+                <div class="plant-info p-6 text-center">
+                    <h2 class="plant-name theme-color text-2xl mb-4">Corona de Cristo</h2>
+                    <button class="info-button" onclick="location.href='{{ route('corona') }}'">Más información</button>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="single-cat" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <div class="cat-icon">
-                        <img src="{{ asset('assets/img/sensores/ldr.jpeg') }}" alt="Sensor LDR" style="width: 120px; height: auto;">
-                    </div>
-                    <div class="cat-cap">
-                        <h5><a href="#">Sensor LDR</a></h5>
-                        <p>Resistencia dependiente de la luz que disminuye su resistencia eléctrica a medida que aumenta la intensidad de la luz.</p>
-                    </div>
+
+
+            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
+                <img src="{{ asset('assets/img/flores/aloe.jpeg') }}" alt="Aloe Vera" class="plant-image">
+                <div class="plant-info p-6 text-center">
+                    <h2 class="plant-name theme-color text-2xl mb-4">Aloe Vera</h2>
+                    <button class="info-button" onclick="location.href='{{ route('aloe') }}'">Más información</button>
+                </div>
+            </div>
+
+            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
+                <img src="{{ asset('assets/img/flores/coleo.jpg') }}" alt="Cóleo" class="plant-image">
+                <div class="plant-info p-6 text-center">
+                    <h2 class="plant-name theme-color text-2xl mb-4">Cóleo</h2>
+                    <button class="info-button" onclick="location.href='{{ route('coleo') }}'">Más información</button>
+                </div>
+            </div>
+
+            <div class="plant-card white-bg shadow-md rounded-lg overflow-hidden hover:translate-y-[-5px] transition">
+                <img src="{{ asset('assets/img/flores/croton.jpeg') }}" alt="Crotón de Jardín" class="plant-image">
+                <div class="plant-info p-6 text-center">
+                    <h2 class="plant-name theme-color text-2xl mb-4">Crotón de Jardín</h2>
+                    <button class="info-button" onclick="location.href='{{ route('croton') }}'">Más información</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
-    <!-- Services End -->
-    <!--? Pricing Card Start -->
-    <section class="pricing-card-area fix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-8">
-                </div>
-            </div>
-            <div class="row">
-            </div>
-        </div>
+    </div>
     </section>
-    <!-- Pricing Card End -->
-    <!--? About-1 Area Start -->
-    <div class="about-area1 section-padding40">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
-                <!-- about-img -->
-                <div class="about-img ">
-                    <img src="assets/img/gallery/about1.png" alt="Prototipo IoT para plantas">
-                </div>
-            </div>
-            <div class="col-xl-7 col-lg-7 col-md-12">
-                <div class="about-caption ">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle section-tittle2 mb-30">
-                        <h2>Beneficios del Prototipo IoT</h2>
-                    </div>
-                    <p class="mb-40">Nuestro innovador sistema IoT para el monitoreo y optimización del cuidado de plantas domésticas ofrece múltiples ventajas para mejorar la salud de tus plantas y facilitar tu vida.</p>
-                    <ul>
-                    <li>
-                    ☑️&nbsp;&nbsp;<p>Monitoreo en tiempo real de luz, humedad y temperatura.</p>
-                    </li>
-                    <li>
-                    ☑️&nbsp;&nbsp;<p>Alertas automáticas para prevenir daños en las plantas.</p>
-                    </li>
-                    <li>
-                    ☑️&nbsp;&nbsp;<p>Ahorro de agua y otros recursos esenciales.</p>
-                    </li>
-                    <li>
-                    ☑️&nbsp;&nbsp;<p>Análisis de datos históricos para un mejor cuidado.</p>
-                    </li>
-                    <li>
-                    ☑️&nbsp;&nbsp;<p>Interfaz intuitiva accesible desde cualquier dispositivo.</p>
-                    </li>
 
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <!-- About-1 Area End -->
-     <!-- About-2 Area start -->
-    <!-- About-2 Area End -->
     <!-- ask questions -->
     <section class="ask-questions section-bg1 section-padding30 fix"> 
     <div class="container">

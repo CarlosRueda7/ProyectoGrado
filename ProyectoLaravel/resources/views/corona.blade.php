@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <button class="boxed-btn" onclick="location.href='{{ route('catalogo') }}'">Regresar</button>
+    <button class="boxed-btn" onclick="location.href='{{ route('index') }}'">Regresar</button>
 
 </div>
 </main>

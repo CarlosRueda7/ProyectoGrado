@@ -71,6 +71,18 @@ Route::get('/perfil', function () {
     return view('perfil');
 })->name('perfil');
 
+Route::get('/dth', function () {
+    return view('dth');
+})->name('dth');
+
+Route::get('/ldr', function () {
+    return view('ldr');
+})->name('ldr');
+
+Route::get('/yl-100', function () {
+    return view('yl-100');
+})->name('yl-100');
+
 // Estas rutas ahora son redundantes si la lógica de 'show' funciona correctamente
 // Route::get('/aloeOpcion', function () {
 //     return view('aloeOpcion');
